@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import "./App.css";
-import Login from "./components/Login";
+import Login from "./components/Login/Login";
 import { createTheme, MantineProvider, rem } from '@mantine/core';
 
 const theme = createTheme({

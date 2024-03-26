@@ -9,7 +9,7 @@ import {
     Group,
     Button,
 } from '@mantine/core';
-import classes from './login.module.css';
+import classes from './Login.module.css';
 export default function Login() {
     return (
       <Container size={420} my={40}>
