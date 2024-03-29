@@ -22,16 +22,12 @@ export function Hero() {
         </Container>
 
         <div className={classes.controls}>
-          <Link href='/login'>
-            <Button className={classes.control} variant="white" size="lg">
+          <Button component={Link} href='/login' className={classes.control} variant="white" size="lg">
             Login
           </Button>
-          </Link>
-          <Link href='/signup'>
-          <Button className={classes.control} size="lg">
+          <Button component={Link} href='/signup'className={classes.control} size="lg">
             Signup
           </Button>
-          </Link>
         </div>
       </div>
     </div>

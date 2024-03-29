@@ -11,6 +11,7 @@ import {
     Button,
   } from '@mantine/core';
   import classes from './signup.module.css';
+  import Link from 'next/link';
 
   
   export default function signup() {
@@ -21,7 +22,7 @@ import {
         </Title>
         <Text c="dimmed" size="sm" ta="center" mt={5}>
           Already have an account?{' '}
-          <Anchor size="sm" component="button">
+          <Anchor size="sm" component={Link} href="/login">
             Login
           </Anchor>
         </Text>
@@ -31,6 +32,7 @@ import {
           <TextInput label="Last Name" required mt="md"/>
           <TextInput label="Email" placeholder="Your email" required mt="md"/>
           <PasswordInput label="Password" placeholder="Your password" required mt="md" />
+          <PasswordInput label="Confirm Password" placeholder="Your password" required mt="md" />
           <Group justify="space-between" mt="lg">
             <Checkbox label="Remember me" />
           </Group>
