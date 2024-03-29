@@ -1,11 +1,12 @@
 import cx from 'clsx';
 import { Title, Text, Container, Button, Overlay } from '@mantine/core';
 import classes from './Hero.module.css';
+import Link from 'next/link';
 
 export function Hero() {
   return (
     <div className={classes.wrapper}>
-      <Overlay color="#000" opacity={.65} zIndex={1} />
+      <Overlay color="#000" opacity={.2} zIndex={1} />
 
       <div className={classes.inner}>
         <Title className={classes.title}>
@@ -21,10 +22,13 @@ export function Hero() {
         </Container>
 
         <div className={classes.controls}>
-          <Button className={classes.control} variant="white" size="lg">
+          <Link href='/login'>
+            <Button className={classes.control} variant="white" size="lg">
             Login
           </Button>
-          <Button className={cx(classes.control, classes.secondaryControl)} size="lg">
+          </Link>
+
+          <Button className={classes.control} size="lg">
             Signup
           </Button>
         </div>
