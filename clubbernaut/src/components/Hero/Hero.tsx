@@ -27,10 +27,11 @@ export function Hero() {
             Login
           </Button>
           </Link>
-
+          <Link href='/signup'>
           <Button className={classes.control} size="lg">
             Signup
           </Button>
+          </Link>
         </div>
       </div>
     </div>
