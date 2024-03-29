@@ -6,7 +6,7 @@ import Link from 'next/link';
 export function Hero() {
   return (
     <div className={classes.wrapper}>
-      <Overlay color="#000" opacity={.2} zIndex={1} />
+      <Overlay color="#000" backgroundOpacity={0.15} blur={3} zIndex={1} />
 
       <div className={classes.inner}>
         <Title className={classes.title}>
@@ -17,7 +17,7 @@ export function Hero() {
 
         <Container size={640}>
           <Text size = "lg" className ={classes.description}>
-            Find new clubs, follow your favorite clubs, receive updates and more!
+            
           </Text>
         </Container>
 

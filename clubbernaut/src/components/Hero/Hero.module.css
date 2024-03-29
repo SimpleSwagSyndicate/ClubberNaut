@@ -5,8 +5,7 @@
     background-image: url(https://www.umass.edu/cp/sites/default/files/styles/slideshow_scale_width_height_cropped/public/2011%20Campus%20Aerial_uk_002_0.jpg?itok=v8nzaZoC);
     background-size: cover;
     background-position: center;
-    width: 100%;
-    height: calc(100vh - 64px);
+    height: calc(110vh - 65px);
 
   
     @media (max-width: $mantine-breakpoint-xs) {
@@ -46,6 +45,8 @@
   .description {
     color: var(--mantine-color-gray-0);
     text-align: center;
+    font-weight:500;
+    font-size: x-large;
   
     @media (max-width: $mantine-breakpoint-xs) {
       font-size: var(--mantine-font-size-md);

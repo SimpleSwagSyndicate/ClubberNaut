@@ -17,6 +17,11 @@ import Link from 'next/link';
 
 export default function login() {
   return (
+    <div>
+      <Button component={Link} href='/'>
+        Home
+      </Button>
+    <div>
     <Container size={420} my={40}>
       <Title ta="center" className={classes.title}>
         Welcome back!
@@ -42,5 +47,7 @@ export default function login() {
         </Button>
       </Paper>
     </Container>
+    </div>
+    </div>
   );
 }
