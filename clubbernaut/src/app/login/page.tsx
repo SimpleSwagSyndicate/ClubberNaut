@@ -13,16 +13,10 @@ import {
 import classes from './login.module.css';
 import Link from 'next/link';
 
-
-
 export default function login() {
   return (
-    <div>
-      <Button component={Link} href='/'>
-        Home
-      </Button>
-    <div>
-    <Container size={420} my={40}>
+    <div className={classes.container}>
+    <Container size={420} >
       <Title ta="center" className={classes.title}>
         Welcome back!
       </Title>
@@ -47,7 +41,6 @@ export default function login() {
         </Button>
       </Paper>
     </Container>
-    </div>
     </div>
   );
 }

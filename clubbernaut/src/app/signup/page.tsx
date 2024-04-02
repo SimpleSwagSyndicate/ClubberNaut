@@ -16,11 +16,7 @@ import {
   
   export default function signup() {
     return (
-      <div>
-      <Button component={Link} href='/'>
-        Home
-      </Button>
-      <div>
+      <div className={classes.container}>
       <Container size={420} my={40}>
         <Title ta="center" className={classes.title}>
           Create an Account!
@@ -46,7 +42,6 @@ import {
           </Button>
         </Paper>
       </Container>
-      </div>
       </div>
     );
   }
