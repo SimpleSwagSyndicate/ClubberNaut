@@ -1,3 +1,4 @@
+'use client';
 import {
     TextInput,
     PasswordInput,
@@ -11,7 +12,9 @@ import {
     Button,
   } from '@mantine/core';
   import classes from './signup.module.css';
+  import SignUp from './Signup';
   import Link from 'next/link';
+
 
   
   export default function signup() {
@@ -29,17 +32,19 @@ import {
         </Text>
   
         <Paper withBorder shadow="md" p={30} mt={30} radius="md">
-          <TextInput label="First Name" required />
-          <TextInput label="Last Name" required mt="md"/>
-          <TextInput label="Email" placeholder="Your email" required mt="md"/>
-          <PasswordInput label="Password" placeholder="Your password" required mt="md" />
+          <TextInput label="First Name" id="firstName" required />
+          <TextInput label="Last Name" id="lastName" required mt="md"/>
+          <TextInput label="Email" placeholder="Your email" id="email" required mt="md"/>
+          <PasswordInput label="Password" placeholder="Your password" id="password" required mt="md" />
           <PasswordInput label="Confirm Password" placeholder="Your password" required mt="md" />
           <Group justify="space-between" mt="lg">
             <Checkbox label="Remember me" />
           </Group>
-          <Button fullWidth mt="xl">
+          
+          <Button onClick={() => console.log(SignUp((document.getElementById("firstName") as HTMLInputElement)!.value + (document.getElementById("lastName") as HTMLInputElement)!.value, (document.getElementById("password")! as HTMLInputElement).value, (document.getElementById("email")! as HTMLInputElement).value ))} fullWidth mt="xl">
             Sign up
           </Button>
+          
         </Paper>
       </Container>
       </div>
