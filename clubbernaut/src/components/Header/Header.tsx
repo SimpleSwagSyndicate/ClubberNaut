@@ -21,7 +21,7 @@ import {
               <a href="/" className={classes.link}>
                 Personal
               </a>
-              <a href="/" className={classes.link}>
+              <a href="/clubsearch" className={classes.link}>
                 Search
               </a>
             </Group>
