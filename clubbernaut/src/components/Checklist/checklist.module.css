@@ -1,0 +1,20 @@
+.title {
+    font-family:
+      Greycliff CF,
+      var(--mantine-font-family);
+    font-weight: 900;
+    position: relative;
+    color:firebrick
+  }
+
+.container {
+    position: relative;
+    left:25px;
+  }
+.pos {
+  position: absolute;
+  top: 20%;
+  right: 85%;
+  width: 200px;
+  height: 100px;
+}
