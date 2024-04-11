@@ -1,8 +1,6 @@
 import { Checkbox, Stack, Title, Paper, Container, Grid } from '@mantine/core';
 import classes from './checklist.module.css';
-
 export function Checklist() {
-  // Need to make Grid dynamic eventually
   return (
     <div>
       <Container size={250} className={classes.pos}>
@@ -14,6 +12,7 @@ export function Checklist() {
               Tags
             </Title>
             <Checkbox
+
                   label="tag 1"
             />
             <Checkbox

@@ -1,4 +1,4 @@
-import { Card, Image, Text, Group, Badge, Button } from '@mantine/core';
+import { Card, Image, Text, Group, Badge, Button, CardSection } from '@mantine/core';
 import classes from './BadgeCard.module.css';
 
 const mockdata = {
@@ -19,42 +19,40 @@ const mockdata = {
 export function BadgeCard() {
   const { image, title, description, tags } = mockdata;
   const features = tags.map((tag) => (
-    <Badge variant="light" key={tag.label} leftSection={tag.emoji}>
+    <Badge color='white' variant="light" key={tag.label} leftSection={tag.emoji}>
       {tag.label}
     </Badge>
   ));
 
   return (
     <Card withBorder radius="md" p="md" className={classes.card}>
-      <Card>
-        <Image src={image} alt={title} height={180} />
-      </Card>
+      <CardSection>
+        <Image src={image} alt={title} height={150} />
+      </CardSection>
     
-      <Card className={classes.section} mt="md">
+      <CardSection className={classes.section} mt="md">
         <Group justify="apart">
           <Text fz="lg" fw={500}>
             {title}
           </Text>
         </Group>
-        <Text fz="sm" mt="xs">
-          {description}
-        </Text>
-      </Card>
+      </CardSection>
 
-      <Card className={classes.section}>
+      <CardSection className={classes.section}>
         <Text mt="md" className={classes.label} c="dimmed">
           Perfect for you, if you enjoy
         </Text>
         <Group gap={7} mt={5}>
           {features}
         </Group>
-      </Card>
-
-      <Group mt="xs">
-        <Button radius="md" style={{ flex: 1 }}>
-          Follow
-        </Button>
-      </Group>
+      </CardSection>
+      <CardSection className={classes.section}>
+        <Group mt="xs">
+          <Button color='#971B2F'radius="md" style={{ flex: 1 }}>
+            Follow
+          </Button>
+        </Group>
+      </CardSection>
     </Card>
   );
 }
