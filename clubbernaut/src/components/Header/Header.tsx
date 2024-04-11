@@ -28,7 +28,7 @@ import {
   
             <Group visibleFrom="sm">
               <Button component={Link} href='/login' variant="default">Log in</Button>
-              <Button component={Link} href='signup'>Sign up</Button>
+              <Button color='#971B2F' component={Link} href='signup'>Sign up</Button>
             </Group>
   
           </Group>

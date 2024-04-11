@@ -4,7 +4,7 @@
       var(--mantine-font-family);
     font-weight: 900;
     position: relative;
-    color:firebrick
+    color: #971B2F
   }
 
 .container {
@@ -13,7 +13,7 @@
   }
 .pos {
   position: absolute;
-  top: 20%;
+  top: 55px;
   right: 85%;
   width: 200px;
   height: 100px;
