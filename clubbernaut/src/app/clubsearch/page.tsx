@@ -14,11 +14,8 @@ export default function clubsearch() {
       <Stack align='center' pos='relative'>
         <Input radius='md' placeholder="Search" size='md'/>
         <Container>
-          <Paper withBorder shadow="md" p='md' mt='xl' radius="md" pos='relative'>
-            <Grid columns={4} pos='relative'>
-              <>
-              <BadgeCard />
-              </>
+          <Paper withBorder shadow="md" p='md' mt='xl' radius="md">
+            <Grid justify='space-between'>
               <>
               <BadgeCard />
               </>
