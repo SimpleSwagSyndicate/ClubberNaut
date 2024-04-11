@@ -26,11 +26,11 @@ export function BadgeCard() {
 
   return (
     <Card withBorder radius="md" p="md" className={classes.card}>
-      <Card.Section>
+      <Card>
         <Image src={image} alt={title} height={180} />
-      </Card.Section>
+      </Card>
 
-      <Card.Section className={classes.section} mt="md">
+      <Card className={classes.section} mt="md">
         <Group justify="apart">
           <Text fz="lg" fw={500}>
             {title}
@@ -39,16 +39,16 @@ export function BadgeCard() {
         <Text fz="sm" mt="xs">
           {description}
         </Text>
-      </Card.Section>
+      </Card>
 
-      <Card.Section className={classes.section}>
+      <Card className={classes.section}>
         <Text mt="md" className={classes.label} c="dimmed">
           Perfect for you, if you enjoy
         </Text>
         <Group gap={7} mt={5}>
           {features}
         </Group>
-      </Card.Section>
+      </Card>
 
       <Group mt="xs">
         <Button radius="md" style={{ flex: 1 }}>
