@@ -29,7 +29,7 @@ export function BadgeCard() {
       <Card>
         <Image src={image} alt={title} height={180} />
       </Card>
-
+    
       <Card className={classes.section} mt="md">
         <Group justify="apart">
           <Text fz="lg" fw={500}>
