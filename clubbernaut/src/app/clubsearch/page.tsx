@@ -3,18 +3,19 @@ import { Checklist } from '@/components/Checklist/Checklist';
 import { BadgeCard } from '@/components/Cards/BadgeCard'
 import {
     Container, Title, Anchor, Text, Paper, SimpleGrid,
-    Stack, Group, Input,
+    Stack, Group, Input, MantineProvider, createTheme   
 } from '@mantine/core'
 import classes from './clubsearch.module.css'
 
 export default function clubsearch() {
   return (
     <div>
-      <Container>
-      <Checklist /> 
-      </Container>
-      <Stack align='center' pos='relative'>
-        <Container pos='relative' bottom={60} size='xl'>
+      <Group>
+      <Group className={classes.postags} >
+        <Checklist />
+      </Group>
+      <Stack className={classes.posclubs} align='center' pos='relative'>
+        <Container className={classes.pos} bottom={60} size='xl'>
         <Input radius='md' placeholder="Search" size='md' bottom={30}/>
             <SimpleGrid cols={3} spacing='xl' verticalSpacing='sm'>
               <>
@@ -37,7 +38,9 @@ export default function clubsearch() {
               </>
             </SimpleGrid>
         </Container>
-      </Stack>
+      </Stack> 
+      </Group>
     </div>
+
   );
 }
