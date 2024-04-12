@@ -3,8 +3,8 @@ import classes from './checklist.module.css';
 export function Checklist() {
   return (
     <div>
-      <Container size={250}>
-        <Paper withBorder shadow="md" p='md' mt='xl' radius="md">
+      <Container >
+        <Paper withBorder shadow="md" p='md' mt='xl' radius="md" w={175}>
           <Stack className={classes.container}
             gap='xl' 
             >
