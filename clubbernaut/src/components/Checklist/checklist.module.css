@@ -11,10 +11,3 @@
     position: relative;
     left:25px;
   }
-.pos {
-  position: absolute;
-  top: 55px;
-  right: 85%;
-  width: 200px;
-  height: 100px;
-}
