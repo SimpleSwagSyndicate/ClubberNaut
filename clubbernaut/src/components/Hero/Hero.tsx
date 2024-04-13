@@ -9,6 +9,6 @@ export function Hero() {
    <Text className={classes.title}>
      Welcome to Clubbernaut!
    </Text>
-
+  
   );
 }
