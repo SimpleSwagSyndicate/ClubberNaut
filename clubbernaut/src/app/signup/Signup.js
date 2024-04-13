@@ -2,19 +2,29 @@ const {createClient} = require('@supabase/supabase-js')
 const supabaseURL = '***REMOVED***'
 const supabaseKEY = '***REMOVED***'
 const supabase = createClient(supabaseURL,supabaseKEY)
-const uuid = require('uuid');
-const SignUp = async (user_name, user_password, user_email) => {
+
+const SignUp = async (user_name, user_password, user_confirm_password, user_email) => {
+
+    if (user_password !== user_confirm_password){
+        return {"status" : "Error","msg": "Passwords do not match."};
+    }
+    
+    if (!user_email.includes('@')){
+        return {"status" : "Error","msg": "Invalid email address."};
+    }
+
     const {exist, error_exist} = await supabase
     .from('User Profile')
     .select('email')
     .eq('email',user_email)
-    console.log(exist)
+
     if (error_exist){
         return {"status":"Error","msg":`${error_exist}`}
     }
     if (exist !== "undefined") {
         return {"status":"Error","msg": "Email already exist"}
     }
+
     const {data_insert, error_insert} = await supabase
     .from('User Profile')
     .insert({
