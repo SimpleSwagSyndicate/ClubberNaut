@@ -17,11 +17,11 @@ const SignUp = async (user_name, user_password, user_confirm_password, user_emai
     .from('User Profile')
     .select('email')
     .eq('email',user_email)
-
+    
     if (error_exist){
         return {"status":"Error","msg":`${error_exist}`}
     }
-    if (exist !== "undefined") {
+    if (exist !== undefined) {
         return {"status":"Error","msg": "Email already exist"}
     }
 
