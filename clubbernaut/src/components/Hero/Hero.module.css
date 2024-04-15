@@ -25,6 +25,7 @@
 }
 
 .logo {
-  position: 'absolute';
-
-}
+  max-width: 35%;
+  height: auto;
+  margin-right: auto;
+  }
