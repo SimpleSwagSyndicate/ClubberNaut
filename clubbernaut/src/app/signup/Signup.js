@@ -21,7 +21,7 @@ const SignUp = async (user_name, user_password, user_confirm_password, user_emai
     if (error_exist){
         return {"status":"Error","msg":`${error_exist}`}
     }
-    if (exist !== undefined) {
+    if (exist !== "undefined") {
         return {"status":"Error","msg": "Email already exist"}
     }
 
