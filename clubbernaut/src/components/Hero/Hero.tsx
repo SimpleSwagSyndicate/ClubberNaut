@@ -7,6 +7,7 @@ import classes from './Hero.module.css';
 
 
 export function Hero() {
+  
   return (
 
     <div>
