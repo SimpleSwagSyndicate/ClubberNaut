@@ -1,0 +1,16 @@
+.div{
+    position: fixed;
+}
+.postags {
+    position: absolute;
+    top: 55px;
+    right: 85%;
+    width: 200px;
+    height: 100px;
+  }
+
+  .posclubs {
+    position: absolute;
+    top: -55px;
+    left: 20%;
+  }
