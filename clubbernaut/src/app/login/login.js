@@ -8,27 +8,24 @@ const logIn = async (user_email, user_password) => {
   console.log("login called!");
 
   const { data: userData, error: userError } = await supabase
-    .from("User Profile")
+    .from("User Profile V1a")
     .select("email, password")
-    .eq("email", user_email)
-    .single();
+    .eq("email", user_email);
 
-  console.log(userData);
-  console.log(userError);
+  // console.log(userData);
   if (userError) {
-    console.log("a");
     return { status: "Error", msg: `${userError.message}` };
   }
 
-  if (!userData) {
-    console.log("b");
+  if (userData.length == 0) {
     return { status: "Error", msg: "User not found" };
   }
-  if (userData.password !== user_password) {
-    console.log("c");
+  let password = userData.at(0).password;
+
+  if (password != user_password) {
     return { status: "Error", msg: "Incorrect password" };
   }
-  console.log("d");
+
   return { status: "Success", msg: "Logged in successfully" };
 };
 export default logIn;
