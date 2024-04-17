@@ -9,8 +9,8 @@ export function Hero() {
   const user = useContext(UserContext)
   const user_id = user.userid
 
-  
 
+  
   return (
     <div>
      <Title className={classes.update}>
