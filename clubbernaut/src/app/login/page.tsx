@@ -1,3 +1,4 @@
+'use client';
 import {
   TextInput,
   PasswordInput,
@@ -12,8 +13,26 @@ import {
 } from '@mantine/core';
 import classes from './login.module.css';
 import Link from 'next/link';
+import logIn from "./login"
+import React, { useState, useEffect} from 'react';
 
 export default function login() {
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleLogin = () => {
+    console.log("Email:", email);
+    console.log("Password:", password);
+    logIn(email, password);
+  };
+
+  useEffect(() => {
+    setEmail('');
+    setPassword('');
+  }, []); 
+
+
   return (
     <div className={classes.container}>
     <Container size={420} >
@@ -28,17 +47,32 @@ export default function login() {
       </Text>
 
       <Paper withBorder shadow="md" p={30} mt={30} radius="md">
-        <TextInput label="Email" placeholder="Your email" required />
-        <PasswordInput label="Password" placeholder="Your password" required mt="md" />
+      <TextInput 
+        label="Email" 
+        placeholder="Your email" 
+        id="email" 
+        required 
+        value={email} 
+        onChange={(e) => setEmail(e.target.value)} 
+      />
+       <PasswordInput 
+        label="Password" 
+        placeholder="Your password" 
+        id="pwd" 
+        required 
+        mt="md" 
+        value={password} 
+        onChange={(e) => setPassword(e.target.value)} 
+      />
         <Group justify="space-between" mt="lg">
           <Checkbox label="Remember me" />
           <Anchor component="button" size="sm">
             Forgot password?
           </Anchor>
         </Group>
-        <Button fullWidth mt="xl">
-          Sign in
-        </Button>
+        <button onClick={handleLogin}>
+        Log in
+      </button>
       </Paper>
     </Container>
     </div>
