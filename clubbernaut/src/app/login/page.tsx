@@ -15,16 +15,26 @@ import classes from './login.module.css';
 import Link from 'next/link';
 import logIn from "./login"
 import React, { useState, useEffect} from 'react';
+// import { useNavigate } from 'react-router-dom'; 
 
 export default function login() {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  // const navigate = useNavigate();
 
-  const handleLogin = () => {
+  const handleLogin = async () => {
     console.log("Email:", email);
     console.log("Password:", password);
-    logIn(email, password);
+    const res = await logIn(email, password);
+
+    // if (res.status == "Success") {
+    //   // Redirect to the homepage
+    //   navigate("/")
+    // } else {
+      
+    // }
+
   };
 
   useEffect(() => {
