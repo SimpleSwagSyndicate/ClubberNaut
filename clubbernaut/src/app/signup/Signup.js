@@ -22,10 +22,10 @@ const SignUp = async (user_name, user_password, user_confirm_password, user_emai
     if (error_exist){
         return {"status":"Error","msg":`${error_exist}`}
     }
-    if (exist.length() !== 0) {
+    if (exist.length !== 0) {
         return {"status":"Error","msg": "Email already exist"}
     }
-
+    
     const {data_insert, error_insert} = await supabase
     .from('User Profile V1a')
     .insert({
@@ -34,7 +34,7 @@ const SignUp = async (user_name, user_password, user_confirm_password, user_emai
         password : user_password,
         email : user_email,
         clubs : [],
-        notification : true,
+        notifications : true,
     })
     
     if (error_insert) {

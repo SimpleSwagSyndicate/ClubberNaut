@@ -2,14 +2,16 @@
 
 import { Image, Paper, ScrollArea, Text, Title , Space} from '@mantine/core';
 import classes from './Hero.module.css';
-
-
-
+import { useContext, useEffect } from 'react';
+import { UserContext } from '../../controllers/UserInfo';
 
 export function Hero() {
-  
-  return (
+  const user = useContext(UserContext)
+  const user_id = user.userid
 
+  
+
+  return (
     <div>
      <Title className={classes.update}>
       Here's what's going on in your communities...
