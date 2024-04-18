@@ -1,5 +1,11 @@
 import { Checkbox, Stack, Title, Paper, Container, Grid } from '@mantine/core';
 import classes from './checklist.module.css';
+import { TagBox } from './CheckBox'
+import {handleCheck} from './handleCheck'
+
+//Component with multiple child checkboxes. 
+//NOTE: for procdurally populating the container, we should have a list of tags that we can grab
+//and iterate through. We can then append tagboxes with those tags to the parent. Should be EZ
 export function Checklist() {
   return (
     <div>
@@ -11,30 +17,13 @@ export function Checklist() {
             <Title className={classes.title}>
               Tags
             </Title>
-                  <Checkbox
-                        label="tag 1"
-                  />
-                  <Checkbox
-                        label="tag 2"
-                  />
-                  <Checkbox
-                        label="tag 3"
-                  />
-                  <Checkbox
-                        label="tag 4"
-                  />
-                  <Checkbox
-                        label="tag 5"
-                  />
-                  <Checkbox
-                        label="tag 6"
-                  />
-                  <Checkbox
-                        label="tag 7"
-                  />
-                  <Checkbox
-                        label="tag 8"
-                  />
+                  <TagBox label={'Computer Science'} handleCheck={handleCheck}/>  
+                  <TagBox label={'Math'} handleCheck={handleCheck}/> 
+                  <TagBox label={'Cyber'} handleCheck={handleCheck}/> 
+                  <TagBox label={'Tag1'} handleCheck={handleCheck}/>  
+                  <TagBox label={'Tag2'} handleCheck={handleCheck}/> 
+                  <TagBox label={'Tag3'} handleCheck={handleCheck}/>
+                  <TagBox label={'Tag4'} handleCheck={handleCheck}/>
           </Stack>
         </Paper>
       </Container>
