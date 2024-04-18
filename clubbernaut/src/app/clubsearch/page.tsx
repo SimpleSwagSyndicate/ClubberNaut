@@ -35,7 +35,7 @@ export default function clubsearch() {
         //On enter, retrieve the club based on current queries. 
         onKeyDown={async (event) => {
           if (event.key === "Enter") {
-            let filteredSearch = await clubSearch(value,await getTags())
+            let filteredSearch = await clubSearch(value, await getTags())
             console.log(filteredSearch)
           }
         }}/>
