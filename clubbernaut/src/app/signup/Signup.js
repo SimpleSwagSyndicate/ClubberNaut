@@ -39,7 +39,7 @@ const SignUp = async (
       password: user_password,
       email: user_email,
       clubs: [],
-      notification: true,
+      notifications: true,
     });
 
   if (error_insert) {
