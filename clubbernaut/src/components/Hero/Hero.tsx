@@ -11,7 +11,7 @@ const supabaseURL = 'https://fricdlpilwnfjdmtvvle.supabase.co'
 const supabaseKEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZyaWNkbHBpbHduZmpkbXR2dmxlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDg2MzQ1NzEsImV4cCI6MjAyNDIxMDU3MX0.PWWh9fYaHNEOoEC61p7k4TcdmrYwe-M5EWV5mwBC-Xk'
 const supabase = createClient(supabaseURL,supabaseKEY)
 
-async function retrieve_updates(user_id:number){
+const retrieve_updates = async (user_id:number) => {
   const {data: clubs,error} = await supabase
   .from('User Profile V1a')
   .select('clubs')
@@ -34,7 +34,6 @@ async function retrieve_updates(user_id:number){
   return updates
 }
 
-
 export function Hero() {
   const user = useContext(UserContext)
   const user_id = user.userid
@@ -43,7 +42,6 @@ export function Hero() {
   useEffect(() => {
     const fetch = async () => {
       let updates = await retrieve_updates(user_id)
-      console.log(updates)
       setUpdates(updates)
     }
     fetch()
@@ -52,10 +50,9 @@ export function Hero() {
   const content = updates.map(u => {
     const club = u[0]
     const content = u[1]
-    const contents = Object.values(content).map((c:any)=>({...c,club:club}))
-    return contents
+    const content_with_club = Object.values(content).map((c:any)=>({...c,club:club}))
+    return content_with_club
   }).flat();
-
 
   return (
     <div>
@@ -74,11 +71,13 @@ export function Hero() {
      <ScrollArea w={600} h={600}>
         {content.map((c:any,index)=>(
           <div key = {index} >
-            <Paper style={{backgroundColor: "#FFFFFF"}} shadow="lg" withBorder p={50} radius={50}>
-              <Text c='black'> {c.club} </Text>
-              <Text c='black'> {c.date} </Text>
-              <Text c='black'> {c.title} </Text>
-              <Text c='black'> {c.description} </Text>
+            <Paper style={{backgroundColor: "#971B2F"}} shadow="lg" p={50} radius={50}>
+              <Text c='#FFFFFF' className = {classes.club}> {c.club} </Text>
+              <br></br>
+              <Text c='#FFFFFF' className = {classes.content}> {c.date} </Text>
+              <Text c='#FFFFFF' className = {classes.content}> {c.title} </Text>
+              <br></br>
+              <Text c='#FFFFFF' className = {classes.content}> {c.description} </Text>
             </Paper> 
             <Space h="md" />
           </div>
