@@ -28,4 +28,14 @@
   max-width: 35%;
   height: auto;
   margin-right: auto;
-  }
+  margin-left: 100px;
+}
+
+.club {
+  font-weight: 900;
+  font-size: 180%;
+}
+
+.content {
+  font-weight: 700;
+}
