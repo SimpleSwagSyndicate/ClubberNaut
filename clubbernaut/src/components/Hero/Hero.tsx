@@ -2,7 +2,7 @@
 
 import { Image, Paper, ScrollArea, Text, Title , Space} from '@mantine/core';
 import classes from './Hero.module.css';
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect,useState } from 'react';
 import { UserContext } from '../../controllers/UserInfo';
 import { resolve } from 'path';
 
@@ -29,51 +29,60 @@ async function retrieve_updates(user_id:number){
 
     const club_updates = update[0].recent_update
 
-    updates.push([club_name,club_updates])
+    updates.push([club_name,club_updates[0]])
   }
   return updates
 }
 
+
 export function Hero() {
   const user = useContext(UserContext)
   const user_id = user.userid
+  const [updates,setUpdates] = useState<any[][]>([])
+
+  useEffect(() => {
+    const fetch = async () => {
+      let updates = await retrieve_updates(user_id)
+      console.log(updates)
+      setUpdates(updates)
+    }
+    fetch()
+  },[])
+
+  const content = updates.map(u => {
+    const club = u[0]
+    const content = u[1]
+    const contents = Object.values(content).map((c:any)=>({...c,club:club}))
+    return contents
+  }).flat();
+
 
   return (
     <div>
      <Title className={classes.update}>
       Here's what's going on in your communities...
      </Title>
-     <div>
+    <div>
+
       <Image
        className={classes.logo}
        src='/clubbernaut-high-resolution-logo-transparent.png'
        alt='Logo'
        />
+
      <div className={classes.scroll}>
-     <ScrollArea w={600} h={450}>
-      <Paper style={{backgroundColor: "#FFFFFF"}} shadow="lg" withBorder p={50} radius={50}>
-        <Text c='black'> This is an update</Text>
-      </Paper>
-      <Space h="md" />
-      <Paper style={{backgroundColor: "#FFFFFF"}} shadow="lg" withBorder p={50} radius={50}>
-        <Text c='black'> This is an update</Text>
-      </Paper>
-      <Space h="md" />
-      <Paper style={{backgroundColor: "#FFFFFF"}} shadow="lg" withBorder p={50} radius={50}>
-        <Text c='black'> This is an update</Text>
-      </Paper>
-      <Space h="md" />
-      <Paper style={{backgroundColor: "#FFFFFF"}} shadow="lg" withBorder p={50} radius={50}>
-        <Text c='black'> This is an update</Text>
-      </Paper>
-      <Space h="md" />
-      <Paper style={{backgroundColor: "#FFFFFF"}} shadow="lg" withBorder p={50} radius={50}>
-        <Text c='black'> This is an update</Text>
-      </Paper>
-      <Space h="md" />
-      <Paper style={{backgroundColor: "#FFFFFF"}} shadow="lg" withBorder p={50} radius={50}>
-        <Text c='black'> This is an update</Text>
-      </Paper>
+     <ScrollArea w={600} h={600}>
+        {content.map((c:any,index)=>(
+          <div key = {index} >
+            <Paper style={{backgroundColor: "#FFFFFF"}} shadow="lg" withBorder p={50} radius={50}>
+              <Text c='black'> {c.club} </Text>
+              <Text c='black'> {c.date} </Text>
+              <Text c='black'> {c.title} </Text>
+              <Text c='black'> {c.description} </Text>
+            </Paper> 
+            <Space h="md" />
+          </div>
+        ))}
      </ScrollArea>
      </div>
      </div>
