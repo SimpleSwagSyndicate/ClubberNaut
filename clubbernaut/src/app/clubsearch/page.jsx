@@ -1,6 +1,6 @@
 "use client";
 import { Checklist } from '@/components/Checklist/Checklist';
-import { BadgeCard } from '@/components/Cards/BadgeCard'
+// import { BadgeCard } from '@/components/Cards/BadgeCard';
 import {
     Container, Title, Anchor, Text, Paper, SimpleGrid,
     Stack, Group, Input, MantineProvider, createTheme  
@@ -8,12 +8,14 @@ import {
 import { useInputState } from '@mantine/hooks';
 import classes from './clubsearch.module.css'
 import {clubSearch} from './clubSearch'
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { getTags } from '@/components/Checklist/handleCheck';
+import {SearchGrid} from './SearchGrid'
 
 export default function clubsearch() {
 
   const [value, setValue] = useInputState('');
+  const [filtData, setFiltData] = useState([])
 
   return (
     <div>
@@ -36,29 +38,10 @@ export default function clubsearch() {
         onKeyDown={async (event) => {
           if (event.key === "Enter") {
             let filteredSearch = await clubSearch(value,await getTags())
-            console.log(filteredSearch)
+            setFiltData(filteredSearch)
           }
         }}/>
-            <SimpleGrid cols={3} spacing='xl' verticalSpacing='sm'>
-              <>
-              <BadgeCard />
-              </>
-              <>
-              <BadgeCard />
-              </>
-              <>
-              <BadgeCard />
-              </>
-              <>
-              <BadgeCard />
-              </>
-              <>
-              <BadgeCard />
-              </>
-              <>
-              <BadgeCard />
-              </>
-            </SimpleGrid>
+            <SearchGrid filteredData = {filtData}/>
         </Container>
       </Stack> 
       </Group>

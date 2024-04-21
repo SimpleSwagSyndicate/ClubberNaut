@@ -4,8 +4,8 @@ import { TagBox } from './CheckBox'
 import {handleCheck} from './handleCheck'
 
 //Component with multiple child checkboxes. 
-//NOTE: for procdurally populating the container, we should have a list of tags that we can grab
-//and iterate through. We can then append tagboxes with those tags to the parent. Should be EZ
+//NOTE: for procedurally populating the container, we should have a list of tags that we can grab
+//and iterate through. We can then append tagboxes with those tags to the parent. Should be chillllllllll
 export function Checklist() {
   return (
     <div>
