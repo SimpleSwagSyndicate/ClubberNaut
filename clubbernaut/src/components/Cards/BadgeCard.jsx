@@ -1,39 +1,24 @@
 import { Card, Image, Text, Group, Badge, Button, CardSection } from '@mantine/core';
 import classes from './BadgeCard.module.css';
 
-const mockdata = {
-  image:
-    'https://upload.wikimedia.org/wikipedia/commons/4/4f/UMass_Seal_Medium_PMS_202.png',
-  title: 'Club',
-  description:
-    'This is a sample club',
-  tags: [
-    { emoji: '☀️', label: 'Sunny weather' },
-    { emoji: '🦓', label: 'Onsite zoo' },
-    { emoji: '🌊', label: 'Sea' },
-    { emoji: '🌲', label: 'Nature' },
-    { emoji: '🤽', label: 'Water sports' },
-  ],
-};
+export const BadgeCard = (props) => {
 
-export function BadgeCard() {
-  const { image, title, description, tags } = mockdata;
-  const features = tags.map((tag) => (
-    <Badge color='white' variant="light" key={tag.label} leftSection={tag.emoji}>
-      {tag.label}
+  const features = props.tags.map((tag) => (
+    <Badge color='white' variant="light" key={tag}>
+      {tag}
     </Badge>
   ));
 
   return (
     <Card withBorder radius="md" p="md" className={classes.card}>
       <CardSection>
-        <Image src={image} alt={title} height={150} />
+        <Image src={props.image} alt={props.name} height={150} />
       </CardSection>
     
       <CardSection className={classes.section} mt="md">
         <Group justify="apart">
           <Text fz="lg" fw={500}>
-            {title}
+            {props.name}
           </Text>
         </Group>
       </CardSection>
