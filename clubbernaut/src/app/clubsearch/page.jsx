@@ -17,6 +17,12 @@ export default function clubsearch() {
   const [value, setValue] = useInputState('');
   const [filtData, setFiltData] = useState([])
 
+  const initialize = async ()=>{
+    setFiltData(await clubSearch("",[]))
+  }
+
+  useEffect(() =>{initialize()},[])
+
   return (
     <div>
       <Group>
