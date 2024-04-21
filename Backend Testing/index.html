@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Clubbernaut</title>
+    <link rel="icon" type="image/x-icon" href="logo.png">
+    <script src="changePage.js"></script>
+
+    <!-- Supabase API -->
+
+    <script type="module">
+        import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
+        const supabase = createClient('https://fricdlpilwnfjdmtvvle.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZyaWNkbHBpbHduZmpkbXR2dmxlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDg2MzQ1NzEsImV4cCI6MjAyNDIxMDU3MX0.PWWh9fYaHNEOoEC61p7k4TcdmrYwe-M5EWV5mwBC-Xk')
+        console.log('Supabase Instance: ', supabase)
+
+        async function signUpNewUser(email, password) {
+            const { data, error } = await supabase.auth.signUp({
+                email: email,
+                password: password,
+                options: {
+                    emailRedirectTo: 'https://example.com/welcome',
+                },
+            })
+        }
+
+    </script>
+</head>
+<body>
+    <!-- Navbar -->
+    <a href="index.html">
+        <img id="logo" src="logo.png" height="43">
+    </a>
+    <nav>
+        <div class="tabs">
+            <button class="linkButton" onclick="changePage('Sign Up')">Sign Up</button>
+            <button class="linkButton" onclick="changePage('User Settings')">User Settings</button>
+            <button class="linkButton" onclick="changePage('Notifications Button')">Notifications Button</button>
+            <button class="linkButton" onclick="changePage('Subscriptions Button')">Subscriptions Button</button>
+            <button class="linkButton" onclick="changePage('Create Club')">Create Club</button>
+            <button class="linkButton" onclick="changePage('Edit Club')">Edit Club</button>
+            <button class="linkButton" onclick="changePage('Forgot Password')">Forgot Password</button>
+            <button class="linkButton" onclick="changePage('Club Page')">Club Page</button>
+            <button class="linkButton" onclick="changePage('Notifier')">Notifier</button>
+            <button class="linkButton" onclick="changePage('Subscribed Clubs')">Subscribed Clubs</button>
+            <button class="linkButton" onclick="changePage('All Clubs')">All Clubs</button>
+            <button class="linkButton" onclick="changePage('Sign In')">Sign In</button>
+        </div>
+    </nav>
+    <div id="view">
+
+    <!-- API Call Tabs -->
+
+    </div>
+    <div id="Sign Up" class="page" style="display: block;">
+        <h1>Sign Up</h1>
+        <p>This is the content of Sign Up.</p>
+    </div>
+    
+    <div id="User Settings" class="page" style="display: none;">
+        <h1>User Settings</h1>
+        <p>This is the content of User Settings.</p>
+    </div>
+    
+    <div id="Notifications Button" class="page" style="display: none;">
+        <h1>Notifications Button</h1>
+        <p>This is the content of Notifications Button.</p>
+    </div>
+    <div id="Subscriptions Button" class="page" style="display: none;">
+        <h1>Subscriptions Button</h1>
+        <p>This is the content of Subscriptions Button.</p>
+    </div>
+    <div id="Create Club" class="page" style="display: none;">
+        <h1>Create Club</h1>
+        <p>This is the content of Create Club.</p>
+    </div>
+    
+    <div id="Edit Club" class="page" style="display: none;">
+        <h1>Edit Club</h1>
+        <p>This is the content of Edit Club.</p>
+    </div>
+    
+    <div id="Forgot Password" class="page" style="display: none;">
+        <h1>Forgot Password</h1>
+        <p>This is the content of Forgot Password.</p>
+    </div>
+    <div id="Club Page" class="page" style="display: none;">
+        <h1>Club Page</h1>
+        <p>This is the content of Club Page.</p>
+    </div>
+    <div id="Notifier" class="page" style="display: none;">
+        <h1>Notifier</h1>
+        <p>This is the content of Notifier.</p>
+    </div>
+    
+    <div id="Subscribed Clubs" class="page" style="display: none;">
+        <h1>Subscribed Clubs</h1>
+        <p>This is the content of Subscribed Clubs.</p>
+    </div>
+    
+    <div id="All Clubs" class="page" style="display: none;">
+        <h1>All Clubs</h1>
+        <p>This is the content of All Clubs.</p>
+    </div>
+    <div id="Sign In" class="page" style="display: none;">
+        <h1>Sign In</h1>
+        <p>This is the content of Sign In.</p>
+    </div>
+
+    <!-- Other Tabs -->
+    <div id="Sign Up Successful" class="page" style="display: none;">
+        <p>You signed up!</p>
+    </div>
+    <div id="Sign In Successful" class="page" style="display: none;">
+        <p>You signed in!</p>
+    </div>
+</body>
+</html>
