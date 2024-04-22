@@ -14,17 +14,17 @@
     <nav id="navbar">
         <img id="logo" src="logo.png">
         <div class="tabs">
-            <button class="linkButton" onclick="changePage('subscriptions-button')">Subscriptions Button</button>
-            <button class="linkButton" onclick="changePage('create-club')">Create Club</button>
-            <button class="linkButton" onclick="changePage('notifications-button')">Notifications Button</button>
-            <button class="linkButton" onclick="changePage('edit-club')">Edit Club</button>
-            <button class="linkButton" onclick="changePage('forgot-password')">Forgot Password</button>
-            <button class="linkButton" onclick="changePage('club-page')">Club Page</button>
-            <button class="linkButton" onclick="changePage('notifier')">Notifier</button>
-            <button class="linkButton" onclick="changePage('subscribed-clubs')">Subscribed Clubs</button>
-            <button class="linkButton" onclick="changePage('all-clubs')">All Clubs</button>
+            <button class="linkButton" id="tab-subscriptions-button">Subscriptions Button</button>
+            <button class="linkButton" id="tab-create-club">Create Club</button>
+            <button class="linkButton" id="tab-notifications-button">Notifications Button</button>
+            <button class="linkButton" id="tab-edit-club">Edit Club</button>
+            <button class="linkButton" id="tab-forgot-password">Forgot Password</button>
+            <button class="linkButton" id="tab-club-page">Club Page</button>
+            <button class="linkButton" id="tab-notifier">Notifier</button>
+            <button class="linkButton" id="tab-subscribed-clubs">Subscribed Clubs</button>
+            <button class="linkButton" id="tab-all-clubs">All Clubs</button>
         </div>
-        <button class="linkButton" onclick="changePage('sign-in')">Sign In</button>
+        <button class="linkButton" id="tab-sign-in">Sign In</button>
         <img id="avatar" height="43" width="43" style="display: none;">
     </nav>
 
@@ -34,32 +34,32 @@
         <h1>Sign Up</h1>
         <form>
             <label for="sign-up-email">Email:</label><br>
-            <input type="text" id="sign-up-email" required><br>
+            <input type="email" id="sign-up-email" required><br>
             <label for="sign-up-username">Username:</label><br>
             <input type="text" id="sign-up-username" required><br>
             <label for="sign-up-password">Password:</label><br>
-            <input type="text" id="sign-up-password" required><br>
+            <input type="password" id="sign-up-password" required><br>
             <label for="sign-up-confirm-password">Confirm Password:</label><br>
-            <input type="text" id="sign-up-confirm-password" required><br>
+            <input type="password" id="sign-up-confirm-password" required><br>
             <label for="file">Profile Picture:</label><br>
             <input type="file" id="file" accept="image/*" required>
             <br>
             <input type="button" id="sign-up-button" value="Sign Up">
             <div id="sign-up-alert"></div>
         </form>
-        <input type="button" onclick="changePage('sign-in')" value="Sign In">
+        <input type="button" id="sign-up-to-sign-in" value="Sign In">
     </div>
     <div id="sign-in" class="page" style="display: block;">
         <form>
             <h1>Sign In</h1>
             <label for="sign-in-email">Email:</label><br>
-            <input type="text" id="sign-in-email" required><br>
+            <input type="email" id="sign-in-email" required><br>
             <label for="sign-in-password">Password:</label><br>
-            <input type="text" id="sign-in-password" required><br>
+            <input type="password" id="sign-in-password" required><br>
             <input type="button" id="sign-in-button" value="Sign In">
             <div id="sign-in-alert"></div>
         </form>
-        <input type="button" onclick="changePage('sign-up')" value="Sign Up">
+        <input type="button" id="sign-in-to-sign-up" value="Sign Up">
     </div>
     <div id="user-settings" class="page" style="display: none;">
         <h1>User Settings</h1>
@@ -110,20 +110,34 @@
     <div id="sign-in-successful" class="page" style="display: none;">
         <p>You signed in!</p>
     </div>
+
     <!-- Imports page changing function -->
-    <script src="changePage.js"></script>
-    <script type="module">
+
+    <script type="module" defer>
         // Connects to Supabase
         import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
         const supabase = createClient('https://hwifvhkdngdxtmbvymlx.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh3aWZ2aGtkbmdkeHRtYnZ5bWx4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTM3Nzc4ODMsImV4cCI6MjAyOTM1Mzg4M30.sxRJ38my2CZwLyRDL04gyBpWdRnhy9V_9sj3jV9zucw')
         // Imports the function to sign up and sign in a new user
+        import LoggedIn from './LoggedIn.js'
         import signUp from './signUp.js'
         import signIn from './signIn.js'
+        import changePage from './changePage.js'
         // Setting up button event listeners
-        const signUpButton = document.getElementById('sign-up-button')
-        const signInButton = document.getElementById('sign-in-button')
-        signUpButton.addEventListener('click', () => {signUp(supabase)})
-        signInButton.addEventListener('click', () => {signIn(supabase)})
+        document.getElementById('tab-subscriptions-button').addEventListener('click', () => {changePage('subscriptions-button')})
+        document.getElementById('tab-create-club').addEventListener('click', () => {changePage('create-club')})
+        document.getElementById('tab-notifications-button').addEventListener('click', () => {changePage('notifications-button')})
+        document.getElementById('tab-edit-club').addEventListener('click', () => {changePage('edit-club')})
+        document.getElementById('tab-forgot-password').addEventListener('click', () => {changePage('forgot-password')})
+        document.getElementById('tab-club-page').addEventListener('click', () => {changePage('club-page')})
+        document.getElementById('tab-notifier').addEventListener('click', () => {changePage('notifier')})
+        document.getElementById('tab-subscribed-clubs').addEventListener('click', () => {changePage('subscribed-clubs')})
+        document.getElementById('tab-all-clubs').addEventListener('click', () => {changePage('all-clubs')})
+        document.getElementById('tab-sign-in').addEventListener('click', () => {changePage('sign-in')})
+        document.getElementById('avatar').addEventListener('click', () => {changePage('user-settings')})
+        document.getElementById('sign-up-to-sign-in').addEventListener('click', () => {changePage('sign-in')})
+        document.getElementById('sign-in-to-sign-up').addEventListener('click', () => {changePage('sign-up')})
+        document.getElementById('sign-up-button').addEventListener('click', () => { signUp(supabase) })
+        document.getElementById('sign-in-button').addEventListener('click', () => { signIn(supabase) })
     </script>
 </body>
 </html>

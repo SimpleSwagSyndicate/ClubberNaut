@@ -5,7 +5,7 @@ class LoggedIn {
         if (this.LoggedIn === null) {
             this.user = user
             this.LoggedIn = new LoggedIn()
-            this.LoggedIn.setLoggedIn(false)
+            this.LoggedIn.setLoggedIn(true)
         }
         return this.LoggedIn
     }

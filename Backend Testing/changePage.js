@@ -5,3 +5,5 @@ function changePage(page) {
     document.getElementById(page).style.display = 'block';
     prevPage = page;
 }
+
+export default changePage
