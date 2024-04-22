@@ -5,3 +5,37 @@
   top: 100px;
   left: 60px;
 }
+
+.scroll {
+  position: absolute;
+  top: 200px;
+  right: 100px;
+}
+
+.update {
+  position: absolute;
+  font-size: 150%;
+  font-weight: 900;
+  top: 110px;
+  right: 140px;
+}
+
+.updates{
+  color: #971B2F
+}
+
+.logo {
+  max-width: 35%;
+  height: auto;
+  margin-right: auto;
+  margin-left: 100px;
+}
+
+.club {
+  font-weight: 900;
+  font-size: 180%;
+}
+
+.content {
+  font-weight: 700;
+}

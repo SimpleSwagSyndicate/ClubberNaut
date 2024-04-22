@@ -1,3 +1,4 @@
+'use client';
 import {
   TextInput,
   PasswordInput,
@@ -12,8 +13,39 @@ import {
 } from '@mantine/core';
 import classes from './login.module.css';
 import Link from 'next/link';
+import logIn from "./login"
+import React, { useState, useEffect} from 'react';
+import { useRouter } from 'next/navigation';
+
+
 
 export default function login() {
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const router = useRouter();
+  // const navigate = useNavigate();
+
+  const handleLogin = async () => {
+    console.log("Email:", email);
+    console.log("Password:", password);
+    const res = await logIn(email, password);
+    
+
+    if (res.status == "Success") {
+      router.push('/');
+    } else {
+      alert("Incorrect password. Please try again.");
+    }
+
+  };
+
+  useEffect(() => {
+    setEmail('');
+    setPassword('');
+  }, []); 
+
+
   return (
     <div className={classes.container}>
     <Container size={420} >
@@ -28,17 +60,32 @@ export default function login() {
       </Text>
 
       <Paper withBorder shadow="md" p={30} mt={30} radius="md">
-        <TextInput label="Email" placeholder="Your email" required />
-        <PasswordInput label="Password" placeholder="Your password" required mt="md" />
+      <TextInput 
+        label="Email" 
+        placeholder="Your email" 
+        id="email" 
+        required 
+        value={email} 
+        onChange={(e) => setEmail(e.target.value)} 
+      />
+       <PasswordInput 
+        label="Password" 
+        placeholder="Your password" 
+        id="pwd" 
+        required 
+        mt="md" 
+        value={password} 
+        onChange={(e) => setPassword(e.target.value)} 
+      />
         <Group justify="space-between" mt="lg">
           <Checkbox label="Remember me" />
           <Anchor component="button" size="sm">
             Forgot password?
           </Anchor>
         </Group>
-        <Button fullWidth mt="xl">
-          Sign in
-        </Button>
+        <Button onClick={handleLogin}>
+        Log in
+      </Button>
       </Paper>
     </Container>
     </div>
