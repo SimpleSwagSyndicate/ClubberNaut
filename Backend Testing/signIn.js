@@ -1,4 +1,5 @@
 import changePage from './changePage.js'
+import LoggedIn from './LoggedIn.js'
 
 const signIn = async (supabase) => {
     // const email = document.getElementById('sign-in-email').value
