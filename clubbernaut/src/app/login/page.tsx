@@ -15,25 +15,28 @@ import classes from './login.module.css';
 import Link from 'next/link';
 import logIn from "./login"
 import React, { useState, useEffect} from 'react';
-// import { useNavigate } from 'react-router-dom'; 
+import { useRouter } from 'next/navigation';
+
+
 
 export default function login() {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const router = useRouter();
   // const navigate = useNavigate();
 
   const handleLogin = async () => {
     console.log("Email:", email);
     console.log("Password:", password);
     const res = await logIn(email, password);
+    
 
-    // if (res.status == "Success") {
-    //   // Redirect to the homepage
-    //   navigate("/")
-    // } else {
-      
-    // }
+    if (res.status == "Success") {
+      router.push('/');
+    } else {
+      alert("Incorrect password. Please try again.");
+    }
 
   };
 
@@ -80,9 +83,9 @@ export default function login() {
             Forgot password?
           </Anchor>
         </Group>
-        <button onClick={handleLogin}>
+        <Button onClick={handleLogin}>
         Log in
-      </button>
+      </Button>
       </Paper>
     </Container>
     </div>
