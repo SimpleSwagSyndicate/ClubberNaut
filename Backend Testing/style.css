@@ -3,7 +3,7 @@
     padding: 0;
 }
 
-.tabs {
+#navbar {
     background-color: #251e68;
     height:"0px";
     background-color:"light-blue";
@@ -39,4 +39,21 @@
     margin-top: 4px;
     margin-left: 50px;
     margin-right: 25px;
+}
+
+#navbar {
+    display: flex;
+    justify-content: space-between;
+}
+
+#logo {
+    width: 50px;
+    height: 50px;
+    background-color: #251e68;
+}
+
+#profilePic {
+    float: right;
+    width: 50px;
+    height: 50px;
 }
