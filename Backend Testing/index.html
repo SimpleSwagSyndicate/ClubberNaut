@@ -14,92 +14,100 @@
     <nav id="navbar">
         <img id="logo" src="logo.png">
         <div class="tabs">
-            <button class="linkButton" onclick="changePage('Subscriptions Button')">Subscriptions Button</button>
-            <button class="linkButton" onclick="changePage('Create Club')">Create Club</button>
-            <button class="linkButton" onclick="changePage('Notifications Button')">Notifications Button</button>
-            <button class="linkButton" onclick="changePage('Edit Club')">Edit Club</button>
-            <button class="linkButton" onclick="changePage('Forgot Password')">Forgot Password</button>
-            <button class="linkButton" onclick="changePage('Club Page')">Club Page</button>
-            <button class="linkButton" onclick="changePage('Notifier')">Notifier</button>
-            <button class="linkButton" onclick="changePage('Subscribed Clubs')">Subscribed Clubs</button>
-            <button class="linkButton" onclick="changePage('All Clubs')">All Clubs</button>
+            <button class="linkButton" onclick="changePage('subscriptions-button')">Subscriptions Button</button>
+            <button class="linkButton" onclick="changePage('create-club')">Create Club</button>
+            <button class="linkButton" onclick="changePage('notifications-button')">Notifications Button</button>
+            <button class="linkButton" onclick="changePage('edit-club')">Edit Club</button>
+            <button class="linkButton" onclick="changePage('forgot-password')">Forgot Password</button>
+            <button class="linkButton" onclick="changePage('club-page')">Club Page</button>
+            <button class="linkButton" onclick="changePage('notifier')">Notifier</button>
+            <button class="linkButton" onclick="changePage('subscribed-clubs')">Subscribed Clubs</button>
+            <button class="linkButton" onclick="changePage('all-clubs')">All Clubs</button>
         </div>
-        <button class="linkButton" onclick="changePage('Sign Up')">Sign Up</button>
+        <button class="linkButton" onclick="changePage('sign-in')">Sign In</button>
         <img id="avatar" height="43" width="43" style="display: none;">
     </nav>
 
     <!-- API Call Tabs -->
 
-    <div id="Sign Up" class="page" style="display: block;">
+    <div id="sign-up" class="page" style="display: none;">
         <h1>Sign Up</h1>
         <form>
-            <label for="email">Email:</label><br>
-            <input type="email" id="email" required><br>
-            <label for="username">Username:</label><br>
-            <input type="text" id="username" required><br>
-            <label for="password">Password:</label><br>
-            <input type="password" id="password" required><br>
-            <label for="confirmPassword">Confirm Password:</label><br>
-            <input type="password" id="confirmPassword" required><br>
+            <label for="sign-up-email">Email:</label><br>
+            <input type="text" id="sign-up-email" required><br>
+            <label for="sign-up-username">Username:</label><br>
+            <input type="text" id="sign-up-username" required><br>
+            <label for="sign-up-password">Password:</label><br>
+            <input type="text" id="sign-up-password" required><br>
+            <label for="sign-up-confirm-password">Confirm Password:</label><br>
+            <input type="text" id="sign-up-confirm-password" required><br>
             <label for="file">Profile Picture:</label><br>
             <input type="file" id="file" accept="image/*" required>
             <br>
-            <input type="button" id="signUpButton" value="Sign In">
-            <div id="Sign Up Alert"></div>
+            <input type="button" id="sign-up-button" value="Sign Up">
+            <div id="sign-up-alert"></div>
         </form>
-        <button onclick="changePage('Sign In')">Sign In</button>
+        <input type="button" onclick="changePage('sign-in')" value="Sign In">
     </div>
-    <div id="User Settings" class="page" style="display: none;">
+    <div id="sign-in" class="page" style="display: block;">
+        <form>
+            <h1>Sign In</h1>
+            <label for="sign-in-email">Email:</label><br>
+            <input type="text" id="sign-in-email" required><br>
+            <label for="sign-in-password">Password:</label><br>
+            <input type="text" id="sign-in-password" required><br>
+            <input type="button" id="sign-in-button" value="Sign In">
+            <div id="sign-in-alert"></div>
+        </form>
+        <input type="button" onclick="changePage('sign-up')" value="Sign Up">
+    </div>
+    <div id="user-settings" class="page" style="display: none;">
         <h1>User Settings</h1>
         <p>This is the content of User Settings.</p>
     </div>
-    <div id="Notifications Button" class="page" style="display: none;">
+    <div id="notifications-button" class="page" style="display: none;">
         <h1>Notifications Button</h1>
         <p>This is the content of Notifications Button.</p>
     </div>
-    <div id="Subscriptions Button" class="page" style="display: none;">
+    <div id="subscriptions-button" class="page" style="display: none;">
         <h1>Subscriptions Button</h1>
         <p>This is the content of Subscriptions Button.</p>
     </div>
-    <div id="Create Club" class="page" style="display: none;">
+    <div id="create-club" class="page" style="display: none;">
         <h1>Create Club</h1>
         <p>This is the content of Create Club.</p>
     </div>
-    <div id="Edit Club" class="page" style="display: none;">
+    <div id="edit-club" class="page" style="display: none;">
         <h1>Edit Club</h1>
         <p>This is the content of Edit Club.</p>
     </div>
-    <div id="Forgot Password" class="page" style="display: none;">
+    <div id="forgot-password" class="page" style="display: none;">
         <h1>Forgot Password</h1>
         <p>This is the content of Forgot Password.</p>
     </div>
-    <div id="Club Page" class="page" style="display: none;">
+    <div id="club-page" class="page" style="display: none;">
         <h1>Club Page</h1>
         <p>This is the content of Club Page.</p>
     </div>
-    <div id="Notifier" class="page" style="display: none;">
+    <div id="notifier" class="page" style="display: none;">
         <h1>Notifier</h1>
         <p>This is the content of Notifier.</p>
     </div>
-    <div id="Subscribed Clubs" class="page" style="display: none;">
+    <div id="subscribed-clubs" class="page" style="display: none;">
         <h1>Subscribed Clubs</h1>
         <p>This is the content of Subscribed Clubs.</p>
     </div>
-    <div id="All Clubs" class="page" style="display: none;">
+    <div id="all-clubs" class="page" style="display: none;">
         <h1>All Clubs</h1>
         <p>This is the content of All Clubs.</p>
-    </div>
-    <div id="Sign In" class="page" style="display: none;">
-        <h1>Sign In</h1>
-        <p>This is the content of Sign In.</p>
     </div>
 
     <!-- Other Tabs -->
 
-    <div id="Sign Up Successful" class="page" style="display: none;">
+    <div id="sign-up-successful" class="page" style="display: none;">
         <p>You signed up!</p>
     </div>
-    <div id="Sign In Successful" class="page" style="display: none;">
+    <div id="sign-in-successful" class="page" style="display: none;">
         <p>You signed in!</p>
     </div>
     <!-- Imports page changing function -->
@@ -108,10 +116,14 @@
         // Connects to Supabase
         import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
         const supabase = createClient('https://hwifvhkdngdxtmbvymlx.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh3aWZ2aGtkbmdkeHRtYnZ5bWx4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTM3Nzc4ODMsImV4cCI6MjAyOTM1Mzg4M30.sxRJ38my2CZwLyRDL04gyBpWdRnhy9V_9sj3jV9zucw')
-        // Imports the function to sign up a new user
-        import signUpNewUser from './signUpNewUser.js'
-        const signUpButton = document.getElementById('signUpButton')
-        signUpButton.addEventListener('click', () => {signUpNewUser(supabase)})
+        // Imports the function to sign up and sign in a new user
+        import signUp from './signUp.js'
+        import signIn from './signIn.js'
+        // Setting up button event listeners
+        const signUpButton = document.getElementById('sign-up-button')
+        const signInButton = document.getElementById('sign-in-button')
+        signUpButton.addEventListener('click', () => {signUp(supabase)})
+        signInButton.addEventListener('click', () => {signIn(supabase)})
     </script>
 </body>
 </html>

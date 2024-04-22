@@ -1,6 +1,6 @@
-const supabaseAuthCreate = async (supabase, email, username, password, signUpAlert) => {
+const authCreate = async (supabase, email, username, password, signUpAlert) => {
     console.log(email, password)
-    const { createdUser, error } = await supabase.auth.signUp({
+    const { data, error } = await supabase.auth.signUp({
         email: email,
         password: password,
         options: {
@@ -14,7 +14,8 @@ const supabaseAuthCreate = async (supabase, email, username, password, signUpAle
         signUpAlert.innerHTML = error.message
         return null
     }
-    return createdUser
+    const { data: { user } } = await supabase.auth.getUser()
+    return user
 }
 
-export default supabaseAuthCreate
+export default authCreate

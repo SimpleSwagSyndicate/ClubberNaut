@@ -1,18 +1,25 @@
 // Stores whether user is logged in
 class LoggedIn {
     LoggedIn = null
-    constructor() {
+    constructor(user) {
         if (this.LoggedIn === null) {
+            this.user = user
             this.LoggedIn = new LoggedIn()
             this.LoggedIn.setLoggedIn(false)
         }
         return this.LoggedIn
     }
-    setLoggedIn(value) {
-        this.loggedIn = value
+    getUsername() {
+        return this.user
+    }
+    setUsername(value) {
+        this.user = user
     }
     getLoggedIn() {
         return this.loggedIn
+    }
+    setLoggedIn(value) {
+        this.loggedIn = value
     }
 }
 
