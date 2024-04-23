@@ -1,0 +1,24 @@
+.border {
+    border-left: rem(1px) solid light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));;
+    height: 1000px;
+    position: absolute;
+    left: 25%;
+    margin-left: -3px;
+    top: 60px;
+}
+.title {
+    position: absolute;
+    font-size: 300%;
+    font-weight: 800;
+    top: 100px;
+    left: 5%;
+    color: #971B2F;
+
+  }
+.listClubs {
+    position: relative;
+    left: 5%;
+}
+.clubCard {
+    width: 250px
+}

@@ -23,7 +23,7 @@ import {
               <a href="/" className={classes.link}>
                 Home
               </a>
-              <a href="/" className={classes.link}>
+              <a href="/personal" className={classes.link}>
                 Personal
               </a>
               <a href="/clubsearch" className={classes.link}>
