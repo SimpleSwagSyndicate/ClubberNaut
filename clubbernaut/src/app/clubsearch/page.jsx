@@ -30,12 +30,13 @@ export default function clubsearch() {
         <Checklist />
       </Group>
       <Stack className={classes.posclubs} align='center' pos='relative'>
-        <Container className={classes.pos} bottom={60} size='xl'>
+        <Container bottom={60} size='xl'>
         <Input radius='md' 
         placeholder="Search" 
         size='md' 
         bottom={30} 
         value={value}
+        className={classes.search}
         //changes value variable when something is typed
         onChange={(event) => 
           setValue(event.currentTarget.value)

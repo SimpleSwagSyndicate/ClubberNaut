@@ -8,7 +8,9 @@
     width: 200px;
     height: 100px;
   }
-
+.search {
+  /* IMPLEMENT TO FIX SEARCH BAR SIZE */
+}
   .posclubs {
     position: absolute;
     top: -55px;
