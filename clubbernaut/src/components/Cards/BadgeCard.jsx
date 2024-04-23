@@ -23,7 +23,7 @@ export const BadgeCard = (props) => {
         </Group>
       </CardSection>
 
-      <CardSection className={classes.section}>
+      <CardSection className={classes.tagsection}>
         <Text mt="md" className={classes.label} c="dimmed">
           Perfect for you, if you enjoy
         </Text>
@@ -31,7 +31,7 @@ export const BadgeCard = (props) => {
           {features}
         </Group>
       </CardSection>
-      <CardSection className={classes.section}>
+      <CardSection className={classes.buttonsection}>
         <Group mt="xs">
           <Button color='#971B2F'radius="md" style={{ flex: 1 }}>
             Follow
