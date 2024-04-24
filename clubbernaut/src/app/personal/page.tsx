@@ -9,6 +9,7 @@ export default function personal() {
             <Title className={classes.title}>
                 Your Clubs
             </Title>
+            <Stack>
                 <ScrollArea className={classes.scroll} w={300} h={500}>
                     <Paper style={{backgroundColor: "#971B2F"}} shadow="lg" p={50} radius={50}>
                         <Text> Club 1</Text>
@@ -30,6 +31,8 @@ export default function personal() {
                         <Text> Club 5</Text>
                     </Paper>
                 </ScrollArea>
+                <Button component={Link} href='/clubcreation' variant="default">Create Club</Button>
+            </Stack>
             </Group>
             <Container className={classes.border} />
         </div>
