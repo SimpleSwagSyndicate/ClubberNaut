@@ -29,6 +29,8 @@ export default function clubcreation() {
         <Checkbox label='Books'/>
         <Checkbox label='Outdoor'/>
         <Checkbox label='Music'/>
+        <Checkbox label='Sport'/>
+        <Checkbox label='Adventure'/>
       </Group>
       </Stack>
       <Textarea 
