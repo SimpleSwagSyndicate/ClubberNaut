@@ -1,8 +1,11 @@
+import { Component } from 'react'
 import classes from './personal.module.css'
-import { Title, Container, Stack, Paper, Group } from '@mantine/core'
+import Link from 'next/link';
+import { Title, Container, Stack, Paper, Group, Button } from '@mantine/core'
 export default function personal() {
     return (
         <div>
+            <Button component={Link} href='/clubcreation' variant="default">Create Club</Button>
             <Group>
             <Title className={classes.title}>
                 Your Clubs
