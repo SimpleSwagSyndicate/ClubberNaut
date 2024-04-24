@@ -5,27 +5,38 @@
     
   }
 
-  .tagsection {
+.tagsection {
     border-bottom: rem(1px) solid light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
     padding-left: var(--mantine-spacing-md);
     padding-right: var(--mantine-spacing-md);
     padding-bottom: 15px;
+    min-height: 35%;
+    max-height: 35%
   }
 
-  .section {
+.buttonsection {
     border-bottom: rem(1px) solid light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
     padding-left: var(--mantine-spacing-md);
     padding-right: var(--mantine-spacing-md);
     padding-bottom: var(--mantine-spacing-md);
+    
+  }
+
+.section {
+    border-bottom: rem(1px) solid light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
+    padding-left: var(--mantine-spacing-md);
+    padding-right: var(--mantine-spacing-md);
+    padding-bottom: var(--mantine-spacing-md);
+    
   }
   
-  .like {
+.like {
     color: var(--mantine-color-red-6);
     width: rem(20px);
     height: rem(20px);
   }
   
-  .label {
+.label {
     text-transform: uppercase;
     font-size: var(--mantine-font-size-xs);
     font-weight: 700;

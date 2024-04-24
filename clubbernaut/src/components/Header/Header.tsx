@@ -2,6 +2,7 @@ import {
     Group,
     Button,
     Box,
+    Image
   } from '@mantine/core';
 
   import classes from './Header.module.css';
@@ -13,12 +14,16 @@ import {
       <Box pb={120}>
         <header className={classes.header}>
           <Group justify="space-between" h="100%">
-  
             <Group h="100%" gap={0} visibleFrom="sm">
+              <Image
+                className={classes.logo}
+                src='/clubbernaut-high-resolution-logo-transparent.png'
+                alt='Logo'
+              />
               <a href="/" className={classes.link}>
                 Home
               </a>
-              <a href="/" className={classes.link}>
+              <a href="/personal" className={classes.link}>
                 Personal
               </a>
               <a href="/clubsearch" className={classes.link}>
