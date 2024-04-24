@@ -18,17 +18,17 @@ export default function clubcreation() {
         />
 
       <Group align='center'  className={classes.section}>
-        <Checkbox label='tag 1'/>
-        <Checkbox label='tag 2'/>
-        <Checkbox label='tag 3'/>
-        <Checkbox label='tag 4'/>
-        <Checkbox label='tag 5'/>
-        <Checkbox label='tag 6'/>
-        <Checkbox label='tag 7'/>
-        <Checkbox label='tag 8'/>
-        <Checkbox label='tag 9'/>
-        <Checkbox label='tag 10'/>
-        <Checkbox label='tag 11'/>
+        <Checkbox label='Computer Science'/>
+        <Checkbox label='AI'/>
+        <Checkbox label='Security'/>
+        <Checkbox label='Programming'/>
+        <Checkbox label='Gaming'/>
+        <Checkbox label='Esports'/>
+        <Checkbox label='English'/>
+        <Checkbox label='Literature'/>
+        <Checkbox label='Books'/>
+        <Checkbox label='Outdoor'/>
+        <Checkbox label='Music'/>
       </Group>
       </Stack>
       <Textarea 
