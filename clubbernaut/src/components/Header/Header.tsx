@@ -30,7 +30,6 @@ import {
                 Search
               </a>
             </Group>
-  
             <Group visibleFrom="sm">
               <Button component={Link} href='/login' variant="default">Log in</Button>
               <Button color='#971B2F' component={Link} href='signup'>Sign up</Button>

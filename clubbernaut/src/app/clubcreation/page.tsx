@@ -1,7 +1,8 @@
 import { Paper, Stack, TextInput, Textarea, Container, Group, Title, Button, Checkbox} from '@mantine/core';
 import classes from './clubcreation.module.css'
 export default function clubcreation() {
-  return (
+    // Tags will be imported from database.
+    return (
     <div>
         <Title className={classes.title} >
             Club Creation
@@ -17,7 +18,7 @@ export default function clubcreation() {
           className={classes.section}
         />
 
-      <Group align='center'  className={classes.section}>
+      <Group align='center'  className={classes.section}> 
         <Checkbox label='tag 1'/>
         <Checkbox label='tag 2'/>
         <Checkbox label='tag 3'/>
@@ -29,7 +30,8 @@ export default function clubcreation() {
         <Checkbox label='tag 9'/>
         <Checkbox label='tag 10'/>
         <Checkbox label='tag 11'/>
-      </Group>
+      </Group> 
+      
       </Stack>
       <Textarea 
         mt="md"

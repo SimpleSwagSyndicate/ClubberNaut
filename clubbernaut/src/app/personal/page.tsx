@@ -5,7 +5,6 @@ import { Text, ScrollArea, Title, Container, Stack, Paper, Group, Button, Space 
 export default function personal() {
     return (
         <div>
-            <Button component={Link} href='/clubcreation' variant="default">Create Club</Button>
             <Group>
             <Title className={classes.title}>
                 Your Clubs
