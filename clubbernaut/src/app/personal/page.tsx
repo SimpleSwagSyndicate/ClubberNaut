@@ -31,7 +31,7 @@ export default function personal() {
                         <Text> Club 5</Text>
                     </Paper>
                 </ScrollArea>
-                <Button component={Link} href='/clubcreation' variant="default">Create Club</Button>
+                <Button className={classes.button} component={Link} href='/clubcreation' variant="default">Create Club</Button>
             </Stack>
             </Group>
             <Container className={classes.border} />

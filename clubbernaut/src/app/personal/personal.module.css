@@ -6,12 +6,18 @@
     margin-left: -3px;
     top: 60px;
 }
+.button {
+    left:30px;
+}
+.scroll {
+    left:30px;
+}
 .title {
     position: absolute;
     font-size: 300%;
     font-weight: 800;
     top: 100px;
-    left: 5%;
+    left: 4%;
     color: #971B2F;
 
   }
