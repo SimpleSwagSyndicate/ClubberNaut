@@ -20,10 +20,10 @@ export function Checklist() {
                   <TagBox label={'Computer Science'} handleCheck={handleCheck}/>  
                   <TagBox label={'Math'} handleCheck={handleCheck}/> 
                   <TagBox label={'Cyber'} handleCheck={handleCheck}/> 
-                  <TagBox label={'Tag1'} handleCheck={handleCheck}/>  
-                  <TagBox label={'Tag2'} handleCheck={handleCheck}/> 
-                  <TagBox label={'Tag3'} handleCheck={handleCheck}/>
-                  <TagBox label={'Tag4'} handleCheck={handleCheck}/>
+                  <TagBox label={'Literature'} handleCheck={handleCheck}/>  
+                  <TagBox label={'Sport'} handleCheck={handleCheck}/> 
+                  <TagBox label={'Outdoor'} handleCheck={handleCheck}/>
+                  <TagBox label={'Esports'} handleCheck={handleCheck}/>
           </Stack>
         </Paper>
       </Container>
