@@ -1,15 +1,21 @@
+"use client"
 import {
     Group,
     Button,
     Box,
-    Image
+    Image,
+    useMantineColorScheme,
+    useComputedColorScheme,
+    Text,
+    ActionIcon
   } from '@mantine/core';
-
+  import cx from 'clsx';
   import classes from './Header.module.css';
   import Link from 'next/link';
   
   export function Header() {
-  
+    const { setColorScheme } = useMantineColorScheme();
+    const computedColorScheme = useComputedColorScheme('dark', { getInitialValueInEffect: true })
     return (
       <Box pb={120}>
         <header className={classes.header}>
@@ -30,7 +36,17 @@ import {
                 Search
               </a>
             </Group>
+            
             <Group visibleFrom="sm">
+              <ActionIcon 
+              color='#971B2F'
+              onClick={() => setColorScheme(computedColorScheme === 'dark' ? 'light' : 'dark')}
+              variant='default'
+              
+              >
+              <Text className={cx(classes.icon, classes.light)}>L</Text>
+              <Text className={cx(classes.icon, classes.dark)}>D</Text>
+              </ActionIcon>
               <Button component={Link} href='/login' variant="default">Log in</Button>
               <Button color='#971B2F' component={Link} href='signup'>Sign up</Button>
             </Group>

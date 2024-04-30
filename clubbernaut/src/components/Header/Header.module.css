@@ -43,6 +43,7 @@
     @mixin light {
       display: block;
     }
+    text-align:center;
   }
   
   .light {
@@ -53,4 +54,5 @@
     @mixin dark {
       display: block;
     }
+    text-align:center;
   }
