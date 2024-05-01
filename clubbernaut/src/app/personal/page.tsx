@@ -1,7 +1,10 @@
+'use client'
+
 import { Component } from 'react'
 import classes from './personal.module.css'
 import Link from 'next/link';
 import { Text, ScrollArea, Title, Container, Stack, Paper, Group, Button, Space } from '@mantine/core'
+import { PersonalCalendar } from '@/components/PersonalCalendar/PersonalCalendar';
 export default function personal() {
     return (
         <div>
@@ -35,6 +38,9 @@ export default function personal() {
             </Stack>
             </Group>
             <Container className={classes.border} />
+            <Container className={classes.calendar} fluid>
+            <PersonalCalendar/>
+            </Container>
         </div>
     )
 }
