@@ -19,9 +19,8 @@ import { useEffect, useState } from 'react';
   const supabaseURL = 'https://fricdlpilwnfjdmtvvle.supabase.co'
   const supabaseKEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZyaWNkbHBpbHduZmpkbXR2dmxlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDg2MzQ1NzEsImV4cCI6MjAyNDIxMDU3MX0.PWWh9fYaHNEOoEC61p7k4TcdmrYwe-M5EWV5mwBC-Xk'
   const supabase = createClient(supabaseURL,supabaseKEY)
-  
-  // Function to fetch username based on email
-  const fetchUsernameByEmail = async (email) => {
+   // Function to fetch username based on email
+   const fetchUsernameByEmail = async (email: any) => {
     try {
       const { data, error } = await supabase
         .from('User Profile V1a')
@@ -43,23 +42,17 @@ import { useEffect, useState } from 'react';
       return null;
     }
   };
-
   export function Header() {
     const user = useContext(UserContext);
     const [email, setEmail] = [user.email, user.setEmail];
     let [name, setName] = useState('');
-
     useEffect(() => {
       const fetch = async () => {
-
         let Name = await fetchUsernameByEmail(email)
         setName(Name)
       }
       fetch()
     },[email])
-
-
-
     const { setColorScheme } = useMantineColorScheme();
     const computedColorScheme = useComputedColorScheme('dark', { getInitialValueInEffect: true })
     return (
@@ -89,21 +82,22 @@ import { useEffect, useState } from 'react';
               color='#971B2F'
               onClick={() => setColorScheme(computedColorScheme === 'dark' ? 'light' : 'dark')}
               variant='default'
-              
               >
               <Text className={cx(classes.icon, classes.light)}>L</Text>
               <Text className={cx(classes.icon, classes.dark)}>D</Text>
               </ActionIcon>
               <div>
-      {email ? (
-        <span>Welcome, {name}</span>
-      ) : (
-        <>
+              {email ? (
+                <span>Welcome, {name}</span>
+              ) : (
+              <>
+              <Group>
               <Button component={Link} href='/login' variant="default">Log in</Button>
               <Button color='#971B2F' component={Link} href='signup'>Sign up</Button>
+              </Group>
               </>
-      )}
-    </div>
+              )}
+            </div>
             </Group>
   
           </Group>
