@@ -68,7 +68,7 @@ export default function login() {
         value={email} 
         onChange={(e) => setEmail(e.target.value)} 
       />
-       <PasswordInput 
+      <PasswordInput 
         label="Password" 
         placeholder="Your password" 
         id="pwd" 

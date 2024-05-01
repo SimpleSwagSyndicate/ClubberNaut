@@ -20,7 +20,7 @@ import {
   export default function signup() {
     function useFormInput(initialValue: string) {
       const [value, setValue] = useState(initialValue);
-      const handleChange = (e) => {
+      const handleChange = (e: any) => {
         setValue(e.target.value);
       };
       return {
@@ -72,7 +72,7 @@ const username: string = firstName.value + lastName.value;
           <Group justify="space-between" mt="lg">
             <Checkbox label="Remember me" />
           </Group>
-         
+        
           <Button onClick={handleSignup} fullWidth mt="xl">
             Sign up
           </Button>

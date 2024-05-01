@@ -18,7 +18,7 @@ const signUp = async (supabase) => {
     const avatar = document.getElementById('avatar')
     if (await signUpFieldsCorrect(email, username, password, confirmPassword, file, signUpAlert) === false) return
     await authCreate(supabase, email, username, password, file, signUpAlert)
-    if (await checkIfUserExists(user, signUpAlert) === true) return
+    if (await checkIfUserExists(supabase.auth.getUser(), signUpAlert) === true) return
     await uploadFile(supabase, 'user_thumbnails', user.id)
     changePage('sign-up-successful')
     avatar.style.display = 'block'
