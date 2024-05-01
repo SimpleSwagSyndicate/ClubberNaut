@@ -18,10 +18,39 @@ import React, { useState, useEffect, useContext} from 'react';
 import { useRouter } from 'next/navigation';
 import { UserContext } from '@/controllers/UserInfo';
 
+  const {createClient} = require('@supabase/supabase-js')
+  const supabaseURL = 'https://fricdlpilwnfjdmtvvle.supabase.co'
+  const supabaseKEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZyaWNkbHBpbHduZmpkbXR2dmxlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDg2MzQ1NzEsImV4cCI6MjAyNDIxMDU3MX0.PWWh9fYaHNEOoEC61p7k4TcdmrYwe-M5EWV5mwBC-Xk'
+  const supabase = createClient(supabaseURL,supabaseKEY)
+
+const fetchUserIdByEmail = async (email: any) => {
+  try {
+    const { data, error } = await supabase
+      .from('User Profile V1a')
+      .select('userid')
+      .eq('email', email)
+      .single(); // Assuming there is only one user with the given email
+
+    if (error) {
+      throw error;
+    }
+    
+    if (data) {
+      return data.userid; // Return the username if found
+    } else {
+      return null; // Return null if no user found with the given email
+    }
+  } catch (error) {
+    console.error('Error fetching username:', error.message);
+    return null;
+  }
+};
+
 
 export default function login() {
 
   const user  = useContext(UserContext);
+
   const [email, setEmail]= useState('');
   const [password, setPassword] = useState('');
   const router = useRouter();
@@ -30,9 +59,13 @@ export default function login() {
   const handleLogin = async () => {
 
     const res = await logIn(email, password);
+    
+    let userId = await fetchUserIdByEmail(email);
+
 
     if (res.status == "Success") {
       user.setEmail(email);
+      user.setUserId(userId)
       router.push('/');
     } else {
       alert("Incorrect password. Please try again.");
