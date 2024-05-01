@@ -1,12 +1,7 @@
-'use client'
+'use client';
 
-import {Hero} from '@/components/Hero/Hero'
-import { UserContext,UserInfo } from '@/controllers/UserInfo'
+import { Hero } from '@/components/Hero/Hero';
 
 export default function Homepage() {
-  return (
-    <UserInfo>
-    <Hero />
-    </UserInfo>
-  )
+  return <Hero />;
 }

@@ -11,11 +11,7 @@ export const metadata = {
   description: 'I have followed setup instructions carefully',
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
@@ -23,10 +19,11 @@ export default function RootLayout({
       </head>
       <body>
         <UserInfo>
-        <MantineProvider>
-          <Header/>
-          {children}</MantineProvider>
-          </UserInfo>
+          <MantineProvider>
+            <Header />
+            {children}
+          </MantineProvider>
+        </UserInfo>
       </body>
     </html>
   );

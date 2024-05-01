@@ -2,10 +2,9 @@ import { Card, Image, Text, Group, Badge, Button, CardSection, Anchor } from '@m
 import classes from './BadgeCard.module.css';
 import { Link } from 'next/link';
 
-export const BadgeCard = (props) => {
-
-  const features = props.tags.map((tag) => (
-    <Badge color='white' variant="light" key={tag}>
+export const BadgeCard = props => {
+  const features = props.tags.map(tag => (
+    <Badge color="white" variant="light" key={tag}>
       {tag}
     </Badge>
   ));
@@ -15,15 +14,18 @@ export const BadgeCard = (props) => {
       <CardSection>
         <Image src={props.image} alt={props.name} height={150} />
       </CardSection>
-    
+
       <CardSection className={classes.section} mt="md">
         <Group justify="apart">
-          <Anchor variant="gradient"
-          gradient={{ from: 'white', to:'#971B2F' }} 
-          fz="lg" fw={500} 
-          component={Link} 
-          href='/clubhome'
-          underline='never'>
+          <Anchor
+            variant="gradient"
+            gradient={{ from: 'white', to: '#971B2F' }}
+            fz="lg"
+            fw={500}
+            component={Link}
+            href="/clubhome"
+            underline="never"
+          >
             {props.name}
           </Anchor>
         </Group>
@@ -39,11 +41,11 @@ export const BadgeCard = (props) => {
       </CardSection>
       <CardSection className={classes.buttonsection}>
         <Group mt="xs">
-          <Button color='#971B2F'radius="md" style={{ flex: 1 }}>
+          <Button color="#971B2F" radius="md" style={{ flex: 1 }}>
             Follow
           </Button>
         </Group>
       </CardSection>
     </Card>
   );
-}
+};
