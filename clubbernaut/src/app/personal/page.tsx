@@ -5,6 +5,13 @@ import classes from './personal.module.css'
 import Link from 'next/link';
 import { Text, ScrollArea, Title, Container, Stack, Paper, Group, Button, Space } from '@mantine/core'
 import { PersonalCalendar } from '@/components/PersonalCalendar/PersonalCalendar';
+<<<<<<< HEAD
+import { useContext, useEffect,useState } from 'react';
+import { UserContext } from '../../controllers/UserInfo';
+
+=======
+import { PersonalCalendar } from '@/components/PersonalCalendar/PersonalCalendar';
+>>>>>>> fc97421bceaa71f5154ee6d6d28daaf6c9ea0e0f
 export default function personal() {
     return (
         <div>
