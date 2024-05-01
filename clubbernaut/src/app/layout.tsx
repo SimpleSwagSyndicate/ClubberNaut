@@ -4,6 +4,7 @@ import '@mantine/core/styles.css';
 import { Header } from '@/components/Header/Header';
 
 import { ColorSchemeScript, MantineProvider } from '@mantine/core';
+import { UserInfo } from '@/controllers/UserInfo';
 
 export const metadata = {
   title: 'Clubbernaut',
@@ -21,9 +22,11 @@ export default function RootLayout({
         <ColorSchemeScript />
       </head>
       <body>
+        <UserInfo>
         <MantineProvider>
           <Header/>
           {children}</MantineProvider>
+          </UserInfo>
       </body>
     </html>
   );
