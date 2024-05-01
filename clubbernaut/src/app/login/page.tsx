@@ -49,7 +49,7 @@ const fetchUserIdByEmail = async (email: any) => {
 
 export default function login() {
 
-  const user  = useContext(UserContext);
+  const user = useContext(UserContext);
 
   const [email, setEmail]= useState('');
   const [password, setPassword] = useState('');
@@ -62,10 +62,9 @@ export default function login() {
     
     let userId = await fetchUserIdByEmail(email);
 
-
     if (res.status == "Success") {
       user.setEmail(email);
-      user.setUserId(userId)
+      user.setUserId(userId);
       router.push('/');
     } else {
       alert("Incorrect password. Please try again.");
