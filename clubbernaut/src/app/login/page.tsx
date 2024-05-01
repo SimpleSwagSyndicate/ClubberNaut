@@ -14,25 +14,25 @@ import {
 import classes from './login.module.css';
 import Link from 'next/link';
 import logIn from "./login"
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect, useContext} from 'react';
 import { useRouter } from 'next/navigation';
-
+import { UserContext } from '@/controllers/UserInfo';
 
 
 export default function login() {
 
-  const [email, setEmail] = useState('');
+  const user  = useContext(UserContext);
+  const [email, setEmail]= useState('');
   const [password, setPassword] = useState('');
   const router = useRouter();
-  // const navigate = useNavigate();
+
 
   const handleLogin = async () => {
-    console.log("Email:", email);
-    console.log("Password:", password);
+
     const res = await logIn(email, password);
-    
 
     if (res.status == "Success") {
+      user.setEmail(email);
       router.push('/');
     } else {
       alert("Incorrect password. Please try again.");
@@ -41,7 +41,7 @@ export default function login() {
   };
 
   useEffect(() => {
-    setEmail('');
+    setEmail('')
     setPassword('');
   }, []); 
 

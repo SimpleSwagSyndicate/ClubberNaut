@@ -1,5 +1,6 @@
-import { Card, Image, Text, Group, Badge, Button, CardSection } from '@mantine/core';
+import { Card, Image, Text, Group, Badge, Button, CardSection, Anchor } from '@mantine/core';
 import classes from './BadgeCard.module.css';
+import { Link } from 'next/link';
 
 export const BadgeCard = (props) => {
 
@@ -17,9 +18,14 @@ export const BadgeCard = (props) => {
     
       <CardSection className={classes.section} mt="md">
         <Group justify="apart">
-          <Text fz="lg" fw={500}>
+          <Anchor variant="gradient"
+          gradient={{ from: 'white', to:'#971B2F' }} 
+          fz="lg" fw={500} 
+          component={Link} 
+          href='/clubhome'
+          underline='never'>
             {props.name}
-          </Text>
+          </Anchor>
         </Group>
       </CardSection>
 
