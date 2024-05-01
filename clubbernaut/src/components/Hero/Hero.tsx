@@ -45,7 +45,7 @@ export function Hero() {
       setUpdates(updates)
     }
     fetch()
-  },[])
+  },[user_id])
 
   const content = updates.map(u => {
     const club = u[0]

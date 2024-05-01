@@ -18,10 +18,39 @@ import React, { useState, useEffect, useContext} from 'react';
 import { useRouter } from 'next/navigation';
 import { UserContext } from '@/controllers/UserInfo';
 
+  const {createClient} = require('@supabase/supabase-js')
+  const supabaseURL = '***REMOVED***'
+  const supabaseKEY = '***REMOVED***'
+  const supabase = createClient(supabaseURL,supabaseKEY)
+
+const fetchUserIdByEmail = async (email: any) => {
+  try {
+    const { data, error } = await supabase
+      .from('User Profile V1a')
+      .select('userid')
+      .eq('email', email)
+      .single(); // Assuming there is only one user with the given email
+
+    if (error) {
+      throw error;
+    }
+    
+    if (data) {
+      return data.userid; // Return the username if found
+    } else {
+      return null; // Return null if no user found with the given email
+    }
+  } catch (error) {
+    console.error('Error fetching username:', error.message);
+    return null;
+  }
+};
+
 
 export default function login() {
 
   const user  = useContext(UserContext);
+
   const [email, setEmail]= useState('');
   const [password, setPassword] = useState('');
   const router = useRouter();
@@ -30,9 +59,13 @@ export default function login() {
   const handleLogin = async () => {
 
     const res = await logIn(email, password);
+    
+    let userId = await fetchUserIdByEmail(email);
+
 
     if (res.status == "Success") {
       user.setEmail(email);
+      user.setUserId(userId)
       router.push('/');
     } else {
       alert("Incorrect password. Please try again.");
