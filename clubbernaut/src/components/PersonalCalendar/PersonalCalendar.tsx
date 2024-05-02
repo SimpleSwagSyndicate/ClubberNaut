@@ -14,14 +14,13 @@ export function PersonalCalendar() {
   return (
     <Calendar
       className={classes.calendar}
-      size='xl'
       styles={(theme) => ({
         cell: {
           border: `1px solid ${
             theme.colors.dark[4]
-          }`,
+          }`
         },
-        day: { borderRadius: 0, height: 70, fontSize: theme.fontSizes.lg },
+        day: { borderRadius: 5, width: 153, height: 125, fontSize: theme.fontSizes.lg },
         weekday: { fontSize: theme.fontSizes.lg },
         weekdayCell: {
           fontSize: theme.fontSizes.lg,
