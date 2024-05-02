@@ -38,7 +38,7 @@ export default function personal() {
             </Stack>
             </Group>
             <Container className={classes.border} />
-            <Container className={classes.calendar} fluid>
+            <Container className={classes.calendar}>
             <PersonalCalendar/>
             </Container>
         </div>
