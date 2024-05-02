@@ -65,7 +65,7 @@ export default function login() {
     try {
       if (res.status == 'Success' && fetchedUserId != null) {
         user.setEmail(email);
-        user.updateUserId(100);
+        user.updateUserId(fetchedUserId);
         router.push('/');
       } else {
         alert('Incorrect password. Please try again.');

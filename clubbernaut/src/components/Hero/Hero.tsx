@@ -27,7 +27,10 @@ const retrieve_updates = async (user_id: number) => {
       .from('Club Profile')
       .select('recent_update')
       .eq('name', club_name);
-
+    
+    if (update[0] === undefined){
+      continue;
+    }
     const club_updates = update[0].recent_update;
 
     updates.push([club_name, club_updates[0]]);
@@ -52,6 +55,9 @@ export function Hero() {
     .map(u => {
       const club = u[0];
       const content = u[1];
+      if (content == null){
+        return [];
+      }
       const content_with_club = Object.values(content).map((c: any) => ({ ...c, club: club }));
       return content_with_club;
     })
