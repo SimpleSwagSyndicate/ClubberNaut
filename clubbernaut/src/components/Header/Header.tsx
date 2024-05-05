@@ -15,6 +15,8 @@ import Link from 'next/link';
 import { UserContext, UserInfo } from '@/controllers/UserInfo';
 import { useContext } from 'react';
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
+
 const { createClient } = require('@supabase/supabase-js');
 const supabaseURL = 'https://fricdlpilwnfjdmtvvle.supabase.co';
 const supabaseKEY =
@@ -45,15 +47,14 @@ const fetchUsernameByEmail = async (email: any) => {
 };
 export function Header() {
   const user = useContext(UserContext);
-  const [email, setEmail] = [user.email, user.setEmail];
-  let [name, setName] = useState('');
+  const router = useRouter()
   useEffect(() => {
     const fetch = async () => {
-      let Name = await fetchUsernameByEmail(email);
-      setName(Name);
+      let Name = await fetchUsernameByEmail(user.email);
+      user.updateName(Name);
     };
     fetch();
-  }, [email]);
+  }, [user.email]);
   const { setColorScheme } = useMantineColorScheme();
   const computedColorScheme = useComputedColorScheme('dark', { getInitialValueInEffect: true });
   return (
@@ -67,13 +68,13 @@ export function Header() {
                 src="/clubbernaut-high-resolution-logo-transparent.png"
                 alt="Logo"
               />
-              <a href="/" className={classes.link}>
+              <a onClick = {() => {router.push('/')}} className={classes.link}>
                 Home
               </a>
-              <a href="/personal" className={classes.link}>
+              <a onClick = {() => {router.push('/personal')}} className={classes.link}>
                 Personal
               </a>
-              <a href="/clubsearch" className={classes.link}>
+              <a onClick = {() => {router.push('/clubsearch')}} className={classes.link}>
                 Search
               </a>
             </Group>
@@ -88,8 +89,8 @@ export function Header() {
                 <Text className={cx(classes.icon, classes.dark)}>D</Text>
               </ActionIcon>
               <div>
-                {email ? (
-                  <span>Welcome, {name}</span>
+                {user.email ? (
+                  <span>Welcome, {user.name}</span>
                 ) : (
                   <>
                     <Group>
