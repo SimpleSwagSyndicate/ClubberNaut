@@ -8,8 +8,7 @@ import { resolve } from 'path';
 
 const { createClient } = require('@supabase/supabase-js');
 const supabaseURL = 'https://fricdlpilwnfjdmtvvle.supabase.co';
-const supabaseKEY =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZyaWNkbHBpbHduZmpkbXR2dmxlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDg2MzQ1NzEsImV4cCI6MjAyNDIxMDU3MX0.PWWh9fYaHNEOoEC61p7k4TcdmrYwe-M5EWV5mwBC-Xk';
+const supabaseKEY ='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZyaWNkbHBpbHduZmpkbXR2dmxlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDg2MzQ1NzEsImV4cCI6MjAyNDIxMDU3MX0.PWWh9fYaHNEOoEC61p7k4TcdmrYwe-M5EWV5mwBC-Xk';
 const supabase = createClient(supabaseURL, supabaseKEY);
 
 const retrieve_updates = async (user_id: number) => {
@@ -27,11 +26,6 @@ const retrieve_updates = async (user_id: number) => {
       .from('Club Profile')
       .select('recent_update')
       .eq('name', club_name);
-    
-    if (update[0] === undefined){
-      continue;
-    }
-    const club_updates = update[0].recent_update;
 
     if (update[0] === undefined){
         continue
@@ -50,7 +44,7 @@ export function Hero() {
   useEffect(() => {
     console.log("USER ID: " + user.userid);
     const fetch = async () => {
-      let updates = await retrieve_updates(user_id)
+      let updates = await retrieve_updates(user.user_id)
       setUpdates(updates)
     }
     fetch()
