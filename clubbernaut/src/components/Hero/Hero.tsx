@@ -44,12 +44,12 @@ export function Hero() {
   useEffect(() => {
     console.log("USER ID: " + user.userid);
     const fetch = async () => {
-      let updates = await retrieve_updates(user.user_id)
+      let updates = await retrieve_updates(user.userid)
       setUpdates(updates)
     }
     fetch()
     
-  },[])
+  },[user.userid])
 
   const content = updates.map(u => {
     const club = u[0]
