@@ -33,7 +33,12 @@ const retrieve_updates = async (user_id: number) => {
     }
     const club_updates = update[0].recent_update;
 
-    updates.push([club_name, club_updates[0]]);
+    if (update[0] === undefined){
+        continue
+    }
+    const club_updates = update[0].recent_update
+
+    updates.push([club_name,club_updates[0]])
   }
   return updates;
 };
@@ -45,23 +50,22 @@ export function Hero() {
   useEffect(() => {
     console.log("USER ID: " + user.userid);
     const fetch = async () => {
-      let updates = await retrieve_updates(user.userid);
-      setUpdates(updates);
-    };
-    fetch();
-  }, [user.userid]);
+      let updates = await retrieve_updates(user_id)
+      setUpdates(updates)
+    }
+    fetch()
+    
+  },[])
 
-  const content = updates
-    .map(u => {
-      const club = u[0];
-      const content = u[1];
-      if (content == null){
-        return [];
-      }
-      const content_with_club = Object.values(content).map((c: any) => ({ ...c, club: club }));
-      return content_with_club;
-    })
-    .flat();
+  const content = updates.map(u => {
+    const club = u[0]
+    const content = u[1]
+    if (content == null){
+      return []
+    }
+    const content_with_club = Object.values(content).map((c:any)=>({...c,club:club}))
+    return content_with_club
+  }).flat();
 
   return (
     <div>
