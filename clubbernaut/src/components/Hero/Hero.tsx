@@ -8,8 +8,7 @@ import { resolve } from 'path';
 
 const { createClient } = require('@supabase/supabase-js');
 const supabaseURL = '***REMOVED***';
-const supabaseKEY =
-  '***REMOVED***';
+const supabaseKEY ='***REMOVED***';
 const supabase = createClient(supabaseURL, supabaseKEY);
 
 const retrieve_updates = async (user_id: number) => {
@@ -27,11 +26,6 @@ const retrieve_updates = async (user_id: number) => {
       .from('Club Profile')
       .select('recent_update')
       .eq('name', club_name);
-    
-    if (update[0] === undefined){
-      continue;
-    }
-    const club_updates = update[0].recent_update;
 
     if (update[0] === undefined){
         continue
@@ -50,7 +44,7 @@ export function Hero() {
   useEffect(() => {
     console.log("USER ID: " + user.userid);
     const fetch = async () => {
-      let updates = await retrieve_updates(user_id)
+      let updates = await retrieve_updates(user.user_id)
       setUpdates(updates)
     }
     fetch()
