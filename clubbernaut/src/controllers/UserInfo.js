@@ -13,8 +13,18 @@ export function UserInfo({ children }) {
     setUserId(id);
   };
 
+  const updateName = name => {
+    console.log('update name to ' + name);
+    setName(name);
+  }
+
+  const updateEmail = email => {
+    console.log('update email to: '+ email);
+    setEmail(email)
+  }
+
   return (
-    <UserContext.Provider value={{ userid, name, email, updateUserId, setName, setEmail }}>
+    <UserContext.Provider value={{ userid, name, email, updateUserId, updateEmail, updateName }}>
       {children}
     </UserContext.Provider>
   );

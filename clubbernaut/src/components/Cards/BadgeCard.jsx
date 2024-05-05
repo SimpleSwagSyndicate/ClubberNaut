@@ -1,6 +1,7 @@
 import { Card, Image, Text, Group, Badge, Button, CardSection, Anchor } from '@mantine/core';
 import classes from './BadgeCard.module.css';
 import { Link } from 'next/link';
+import { useRouter } from 'next/navigation';
 
 export const BadgeCard = props => {
   const features = props.tags.map(tag => (
@@ -8,7 +9,7 @@ export const BadgeCard = props => {
       {tag}
     </Badge>
   ));
-
+  const router = useRouter()
   return (
     <Card withBorder radius="md" p="md" className={classes.card}>
       <CardSection>
@@ -22,8 +23,7 @@ export const BadgeCard = props => {
             gradient={{ from: 'white', to: '#971B2F' }}
             fz="lg"
             fw={500}
-            component={Link}
-            href="/clubhome"
+            onClick = {() => {router.push('/clubhome')}}
             underline="never"
           >
             {props.name}

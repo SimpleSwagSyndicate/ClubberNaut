@@ -64,7 +64,7 @@ export default function login() {
 
     try {
       if (res.status == 'Success' && fetchedUserId != null) {
-        user.setEmail(email);
+        user.updateEmail(email);
         user.updateUserId(fetchedUserId);
         router.push('/');
       } else {
