@@ -8,7 +8,8 @@ import { resolve } from 'path';
 
 const { createClient } = require('@supabase/supabase-js');
 const supabaseURL = '***REMOVED***';
-const supabaseKEY ='***REMOVED***';
+const supabaseKEY =
+  '***REMOVED***';
 const supabase = createClient(supabaseURL, supabaseKEY);
 
 const retrieve_updates = async (user_id: number) => {
@@ -27,12 +28,12 @@ const retrieve_updates = async (user_id: number) => {
       .select('recent_update')
       .eq('name', club_name);
 
-    if (update[0] === undefined){
-        continue
+    if (update[0] === undefined) {
+      continue;
     }
-    const club_updates = update[0].recent_update
+    const club_updates = update[0].recent_update;
 
-    updates.push([club_name,club_updates[0]])
+    updates.push([club_name, club_updates[0]]);
   }
   return updates;
 };
@@ -42,24 +43,25 @@ export function Hero() {
   const [updates, setUpdates] = useState<any[][]>([]);
 
   useEffect(() => {
-    console.log("USER ID: " + user.userid);
+    console.log('USER ID: ' + user.userid);
     const fetch = async () => {
-      let updates = await retrieve_updates(user.userid)
-      setUpdates(updates)
-    }
-    fetch()
-    
-  },[user.userid])
+      let updates = await retrieve_updates(user.userid);
+      setUpdates(updates);
+    };
+    fetch();
+  }, [user.userid]);
 
-  const content = updates.map(u => {
-    const club = u[0]
-    const content = u[1]
-    if (content == null){
-      return []
-    }
-    const content_with_club = Object.values(content).map((c:any)=>({...c,club:club}))
-    return content_with_club
-  }).flat();
+  const content = updates
+    .map(u => {
+      const club = u[0];
+      const content = u[1];
+      if (content == null) {
+        return [];
+      }
+      const content_with_club = Object.values(content).map((c: any) => ({ ...c, club: club }));
+      return content_with_club;
+    })
+    .flat();
 
   return (
     <div>
