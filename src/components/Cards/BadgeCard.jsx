@@ -9,7 +9,7 @@ export const BadgeCard = props => {
       {tag}
     </Badge>
   ));
-  const router = useRouter()
+  const router = useRouter();
   return (
     <Card withBorder radius="md" p="md" className={classes.card}>
       <CardSection>
@@ -23,7 +23,9 @@ export const BadgeCard = props => {
             gradient={{ from: 'white', to: '#971B2F' }}
             fz="lg"
             fw={500}
-            onClick = {() => {router.push('/clubhome')}}
+            onClick={() => {
+              router.push('/clubhome');
+            }}
             underline="never"
           >
             {props.name}

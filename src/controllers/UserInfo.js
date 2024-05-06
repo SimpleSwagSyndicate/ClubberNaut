@@ -1,5 +1,5 @@
-"use client";
-import React, { useState, createContext, useRef } from "react";
+'use client';
+import React, { useState, createContext, useRef } from 'react';
 
 export const UserContext = createContext();
 
@@ -16,12 +16,12 @@ export function UserInfo({ children }) {
   const updateName = name => {
     console.log('update name to ' + name);
     setName(name);
-  }
+  };
 
   const updateEmail = email => {
-    console.log('update email to: '+ email);
-    setEmail(email)
-  }
+    console.log('update email to: ' + email);
+    setEmail(email);
+  };
 
   return (
     <UserContext.Provider value={{ userid, name, email, updateUserId, updateEmail, updateName }}>
