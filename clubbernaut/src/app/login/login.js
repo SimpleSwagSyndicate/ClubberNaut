@@ -1,7 +1,6 @@
 const { createClient } = require("@supabase/supabase-js");
 const supabaseURL = "https://fricdlpilwnfjdmtvvle.supabase.co";
-const supabaseKEY =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZyaWNkbHBpbHduZmpkbXR2dmxlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDg2MzQ1NzEsImV4cCI6MjAyNDIxMDU3MX0.PWWh9fYaHNEOoEC61p7k4TcdmrYwe-M5EWV5mwBC-Xk";
+const supabaseKEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZyaWNkbHBpbHduZmpkbXR2dmxlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDg2MzQ1NzEsImV4cCI6MjAyNDIxMDU3MX0.PWWh9fYaHNEOoEC61p7k4TcdmrYwe-M5EWV5mwBC-Xk";
 const supabase = createClient(supabaseURL, supabaseKEY);
 
 // const logIn = async (user_email, user_password) => {
@@ -29,5 +28,21 @@ const supabase = createClient(supabaseURL, supabaseKEY);
 //   return { status: "Success", msg: "Logged in successfully" };
 // };
 
+const logIn = async (user_email, user_password) => {
+    const email = document.getElementById('sign-in-email').value;
+    const password = document.getElementById('sign-in-password').value;
+    const { data, error } = await supabase.auth.signInWithPass({
+        email: user_email,
+        password: user_password
+    })
+    if (error) {
+        signInAlert.innerHTML = error.message
+        console.log(error.message)
+        return null
+    }
+    const { data: { user } } = await supabase.auth.getUser()
+    console.log("Sign in successful!");
+    return data, error;
+}
 
 export default logIn;

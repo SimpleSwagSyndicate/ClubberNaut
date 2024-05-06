@@ -1,4 +1,4 @@
-let prevPage = "sign-in";
+let prevPage = "log_in";
 
 function changePage(page) {
     document.getElementById(prevPage).style.display = 'none';

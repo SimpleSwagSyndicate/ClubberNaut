@@ -14,78 +14,78 @@
     <nav id="navbar">
         <img id="logo" src="logo.png">
         <div class="tabs">
-            <button class="linkButton" id="tab-subscriptions-button">Subscriptions Button</button>
-            <button class="linkButton" id="tab-create-club">Create Club</button>
-            <button class="linkButton" id="tab-notifications-button">Notifications Button</button>
-            <button class="linkButton" id="tab-edit-club">Edit Club</button>
-            <button class="linkButton" id="tab-forgot-password">Forgot Password</button>
-            <button class="linkButton" id="tab-club-page">Club Page</button>
-            <button class="linkButton" id="tab-notifier">Notifier</button>
-            <button class="linkButton" id="tab-subscribed-clubs">Subscribed Clubs</button>
-            <button class="linkButton" id="tab-all-clubs">All Clubs</button>
+            <button class="linkButton" id="tab_subscriptions_button">Subscriptions Button</button>
+            <button class="linkButton" id="tab_create_club">Create Club</button>
+            <button class="linkButton" id="tab_notifications_button">Notifications Button</button>
+            <button class="linkButton" id="tab_edit_club">Edit Club</button>
+            <button class="linkButton" id="tab_forgot_password">Forgot Password</button>
+            <button class="linkButton" id="tab_club_page">Club Page</button>
+            <button class="linkButton" id="tab_notifier">Notifier</button>
+            <button class="linkButton" id="tab_subscribed_clubs">Subscribed Clubs</button>
+            <button class="linkButton" id="tab_all_clubs">All Clubs</button>
         </div>
-        <button class="linkButton" id="tab-sign-in">Sign In</button>
+        <button class="linkButton" id="tab_log_in">Sign In</button>
         <img id="avatar" height="43" width="43" style="display: none;">
     </nav>
 
     <!-- API Call Tabs -->
 
-    <div id="sign-up" class="page" style="display: none;">
+    <div id="sign_up" class="page" style="display: none;">
         <h1>Sign Up</h1>
         <form>
-            <label for="sign-up-email">Email:</label><br>
-            <input type="email" id="sign-up-email" required><br>
-            <label for="sign-up-username">Username:</label><br>
-            <input type="text" id="sign-up-username" required><br>
-            <label for="sign-up-password">Password:</label><br>
-            <input type="password" id="sign-up-password" required><br>
-            <label for="sign-up-confirm-password">Confirm Password:</label><br>
-            <input type="password" id="sign-up-confirm-password" required><br>
+            <label for="sign_up_email">Email:</label><br>
+            <input type="email" id="sign_up_email" required><br>
+            <label for="sign_up_username">Username:</label><br>
+            <input type="text" id="sign_up_username" required><br>
+            <label for="sign_up_password">Password:</label><br>
+            <input type="password" id="sign_up_password" required><br>
+            <label for="sign_up_confirm_password">Confirm Password:</label><br>
+            <input type="password" id="sign_up_confirm_password" required><br>
             <label for="file">Profile Picture:</label><br>
             <input type="file" id="file" accept="image/*" required>
             <br>
-            <input type="button" id="sign-up-button" value="Sign Up">
-            <div id="sign-up-alert"></div>
+            <input type="button" id="sign_up_button" value="Sign Up">
+            <div id="sign_up_alert"></div>
         </form>
-        <input type="button" id="sign-up-to-sign-in" value="Sign In">
+        <input type="button" id="sign_up_to_log_in" value="Sign In">
     </div>
-    <div id="sign-in" class="page" style="display: block;">
+    <div id="log_in" class="page" style="display: block;">
         <form>
             <h1>Sign In</h1>
-            <label for="sign-in-email">Email:</label><br>
-            <input type="email" id="sign-in-email" required><br>
-            <label for="sign-in-password">Password:</label><br>
-            <input type="password" id="sign-in-password" required><br>
-            <input type="button" id="sign-in-button" value="Sign In">
-            <div id="sign-in-alert"></div>
+            <label for="log_in_email">Email:</label><br>
+            <input type="email" id="log_in_email" required><br>
+            <label for="log_in_password">Password:</label><br>
+            <input type="password" id="log_in_password" required><br>
+            <input type="button" id="log_in_button" value="Sign In">
+            <div id="log_in_alert"></div>
         </form>
-        <input type="button" id="sign-in-to-sign-up" value="Sign Up">
+        <input type="button" id="log_in_to_sign_up" value="Sign Up">
     </div>
-    <div id="user-settings" class="page" style="display: none;">
+    <div id="user_settings" class="page" style="display: none;">
         <h1>User Settings</h1>
         <p>This is the content of User Settings.</p>
     </div>
-    <div id="notifications-button" class="page" style="display: none;">
+    <div id="notifications_button" class="page" style="display: none;">
         <h1>Notifications Button</h1>
         <p>This is the content of Notifications Button.</p>
     </div>
-    <div id="subscriptions-button" class="page" style="display: none;">
+    <div id="subscriptions_button" class="page" style="display: none;">
         <h1>Subscriptions Button</h1>
         <p>This is the content of Subscriptions Button.</p>
     </div>
-    <div id="create-club" class="page" style="display: none;">
+    <div id="create_club" class="page" style="display: none;">
         <h1>Create Club</h1>
         <p>This is the content of Create Club.</p>
     </div>
-    <div id="edit-club" class="page" style="display: none;">
+    <div id="edit_club" class="page" style="display: none;">
         <h1>Edit Club</h1>
         <p>This is the content of Edit Club.</p>
     </div>
-    <div id="forgot-password" class="page" style="display: none;">
+    <div id="forgot_password" class="page" style="display: none;">
         <h1>Forgot Password</h1>
         <p>This is the content of Forgot Password.</p>
     </div>
-    <div id="club-page" class="page" style="display: none;">
+    <div id="club_page" class="page" style="display: none;">
         <h1>Club Page</h1>
         <p>This is the content of Club Page.</p>
     </div>
@@ -93,22 +93,25 @@
         <h1>Notifier</h1>
         <p>This is the content of Notifier.</p>
     </div>
-    <div id="subscribed-clubs" class="page" style="display: none;">
+    <div id="subscribed_clubs" class="page" style="display: none;">
         <h1>Subscribed Clubs</h1>
         <p>This is the content of Subscribed Clubs.</p>
     </div>
-    <div id="all-clubs" class="page" style="display: none;">
+    <div id="all_clubs" class="page" style="display: none;">
         <h1>All Clubs</h1>
         <p>This is the content of All Clubs.</p>
     </div>
 
     <!-- Other Tabs -->
 
-    <div id="sign-up-successful" class="page" style="display: none;">
+    <div id="sign_up_successful" class="page" style="display: none;">
         <p>You signed up!</p>
     </div>
-    <div id="sign-in-successful" class="page" style="display: none;">
+    <div id="log_in_successful" class="page" style="display: none;">
         <p>You signed in!</p>
+    </div>
+    <div id="log_out_successful" class="page" style="display: none;">
+        <p>You logged out!</p>
     </div>
 
     <!-- Imports page changing function -->
@@ -118,26 +121,36 @@
         import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
         const supabase = createClient('https://hwifvhkdngdxtmbvymlx.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh3aWZ2aGtkbmdkeHRtYnZ5bWx4Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTcxMzc3Nzg4MywiZXhwIjoyMDI5MzUzODgzfQ.jpvSXJTkFI2GTsp1F_LM2iXD7GZLh_R20TvPBsSlzfQ')
         // Imports the function to sign up and sign in a new user
-        import LoggedIn from './LoggedIn.js'
         import signUp from './signUp.js'
-        import signIn from './signIn.js'
+        import login from './login.js'
+        import logout from './logout.js'
         import changePage from './changePage.js'
         // Setting up button event listeners
-        document.getElementById('tab-subscriptions-button').addEventListener('click', () => {changePage('subscriptions-button')})
-        document.getElementById('tab-create-club').addEventListener('click', () => {changePage('create-club')})
-        document.getElementById('tab-notifications-button').addEventListener('click', () => {changePage('notifications-button')})
-        document.getElementById('tab-edit-club').addEventListener('click', () => {changePage('edit-club')})
-        document.getElementById('tab-forgot-password').addEventListener('click', () => {changePage('forgot-password')})
-        document.getElementById('tab-club-page').addEventListener('click', () => {changePage('club-page')})
-        document.getElementById('tab-notifier').addEventListener('click', () => {changePage('notifier')})
-        document.getElementById('tab-subscribed-clubs').addEventListener('click', () => {changePage('subscribed-clubs')})
-        document.getElementById('tab-all-clubs').addEventListener('click', () => {changePage('all-clubs')})
-        document.getElementById('tab-sign-in').addEventListener('click', () => {changePage('sign-in')})
-        document.getElementById('avatar').addEventListener('click', () => {changePage('user-settings')})
-        document.getElementById('sign-up-to-sign-in').addEventListener('click', () => {changePage('sign-in')})
-        document.getElementById('sign-in-to-sign-up').addEventListener('click', () => {changePage('sign-up')})
-        document.getElementById('sign-up-button').addEventListener('click', () => { signUp(supabase) })
-        document.getElementById('sign-in-button').addEventListener('click', () => { signIn(supabase) })
+        document.getElementById('tab_subscriptions_button').addEventListener('click', () => {changePage('subscriptions_button')})
+        document.getElementById('tab_create_club').addEventListener('click', () => {changePage('create_club')})
+        document.getElementById('tab_notifications_button').addEventListener('click', () => {changePage('notifications_button')})
+        document.getElementById('tab_edit_club').addEventListener('click', () => {changePage('edit_club')})
+        document.getElementById('tab_forgot_password').addEventListener('click', () => {changePage('forgot_password')})
+        document.getElementById('tab_club_page').addEventListener('click', () => {changePage('club_page')})
+        document.getElementById('tab_notifier').addEventListener('click', () => {changePage('notifier')})
+        document.getElementById('tab_subscribed_clubs').addEventListener('click', () => {changePage('subscribed_clubs')})
+        document.getElementById('tab_all_clubs').addEventListener('click', () => {changePage('all_clubs')})
+        document.getElementById('tab_log_in').addEventListener('click', () => {
+            const text = document.getElementById('tab_log_in').innerHTML
+            if (text === 'Sign In') {
+                changePage('log_in')
+                return
+            }
+            if (text === 'Log Out') {
+                logout(supabase)
+                return
+            }
+        })
+        document.getElementById('avatar').addEventListener('click', () => {changePage('user_settings')})
+        document.getElementById('sign_up_to_log_in').addEventListener('click', () => {changePage('log_in')})
+        document.getElementById('log_in_to_sign_up').addEventListener('click', () => {changePage('sign_up')})
+        document.getElementById('sign_up_button').addEventListener('click', () => { signUp(supabase) })
+        document.getElementById('log_in_button').addEventListener('click', () => { login(supabase) })
     </script>
 </body>
 </html>

@@ -1,9 +1,10 @@
 // Uploads a file to Supabase bucket
-const uploadFile = async (supabase, bucket, filepath) => {
+const uploadFile = async (supabase, file, bucket, filepath) => {
+    console.log(supabase, file, bucket, filepath)
     const { data, error } = await supabase
     .storage
-    .from('bucket_name')
-    .upload('file_path', file)
+    .from(bucket)
+    .upload(filepath + '/avatar.jpg', file)
     if (error) {
         console.log('Error uploading file: ', error.message)
     } else {

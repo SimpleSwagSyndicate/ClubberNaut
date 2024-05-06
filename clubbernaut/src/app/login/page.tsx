@@ -28,11 +28,11 @@ export default function login() {
 
 
   const handleLogin = async () => {
+    const { data, error } = await logIn(email, password);
 
-    const res = await logIn(email, password);
-
-    if (res.status == "Success") {
-      user.setEmail(email);
+    if (error) {
+      user.setEmail(user.email);
+      user.setName(user.setuser.raw_user_meta_data.name);
       router.push('/');
     } else {
       alert("Incorrect password. Please try again.");
