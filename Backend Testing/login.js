@@ -2,10 +2,12 @@ import changePage from './changePage.js'
 import logout from './logout.js'
 
 const signIn = async (supabase) => {
+    
     const email = document.getElementById('log_in_email').value
     const password = document.getElementById('log_in_password').value
     const signInAlert = document.getElementById('log_in_alert')
     const signInSuccessfulPage = document.getElementById('Sign In Successful')
+    signInAlert.innerHTML = ''
     const { data, error } = await supabase.auth.signInWithPassword({
         email: email,
         password: password

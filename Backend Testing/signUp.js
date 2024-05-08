@@ -29,6 +29,7 @@ const signUp = async (supabase) => {
     console.log(avatarSrc)
     avatar.src = 'https://hwifvhkdngdxtmbvymlx.supabase.co/storage/v1/object/public/user_avatars/' + user.id + '/avatar.jpg'
     avatar.style.display = 'block'
+    document.getElementById('tab_log_in').innerHTML = "Log Out"
     signUpAlert.innerHTML = 'Sign up successful.'
 }
 
