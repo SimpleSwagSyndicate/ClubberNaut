@@ -10,6 +10,7 @@ import {
   Container,
   Group,
   Button,
+  Space
 } from '@mantine/core';
 import classes from './login.module.css';
 import Link from 'next/link';
@@ -112,7 +113,9 @@ export default function login() {
               Forgot password?
             </Anchor>
           </Group>
+          <Space h={30}/>
           <Button
+            className={classes.login}
             onClick={() => {
               handleLogin();
             }}
