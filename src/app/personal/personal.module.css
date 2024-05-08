@@ -1,0 +1,38 @@
+.border {
+  border-left: rem(1px) solid light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
+  height: 750px;
+  position: absolute;
+  left: 25%;
+  margin-left: -3px;
+  top: 60px;
+}
+.button {
+  left: 30px;
+}
+.scroll {
+  left: 30px;
+}
+.title {
+  position: absolute;
+  font-size: 300%;
+  font-weight: 800;
+  top: 100px;
+  left: 4%;
+  color: #971b2f;
+}
+.listClubs {
+  position: relative;
+  left: 5%;
+}
+.clubCard {
+  width: 250px;
+}
+
+.calendar {
+  height: 700px;
+  position: absolute;
+  left: 25%;
+  margin-left: -3px;
+  top: 60px;
+  width: 75%;
+}

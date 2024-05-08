@@ -1,11 +1,31 @@
-# Clubbernaut
-Proud project presented by Simple Swag Syncidate! We aim to provide a user-friendly, aesthetically pleasing Club organization Web App for the University of Massachusetts Amherst. Since we are not officially supported by the university, we will also be utilizing its existing solution Campus Pulse for certain features. Our goal is to provide more visual aid and simplify website interactions rather than replacing Campus Pulse. We hope our project will promote more students to participate and enjoy Club activities!
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Getting Started
 
-## TEST
+First, run the development server:
 
-Please write down your name using push:
+```bash
+npm run build
+npm run dev
+```
 
-Jianxin Lin
-Max Loper
-Steven Arbo
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
