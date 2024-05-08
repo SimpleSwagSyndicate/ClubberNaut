@@ -6,8 +6,8 @@ import { useContext, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 const { createClient } = require('@supabase/supabase-js');
-const supabaseURL = '***REMOVED***';
-const supabaseKEY = '***REMOVED***'
+const supabaseURL = process.env.SUPABASE_URL;
+const supabaseKEY = process.env.SUPABASE_KEY;
 const supabase = createClient(supabaseURL, supabaseKEY);
 
 const retrieve_club_id = async (club_name) => {

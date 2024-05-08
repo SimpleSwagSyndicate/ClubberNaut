@@ -20,8 +20,8 @@ import { useContext, useEffect, useState } from 'react';
 import { UserContext } from '@/controllers/UserInfo';
 
 const { createClient } = require('@supabase/supabase-js');
-const supabaseURL = '***REMOVED***';
-const supabaseKEY = '***REMOVED***'
+const supabaseURL = process.env.SUPABASE_URL;
+const supabaseKEY = process.env.SUPABASE_KEY;
 const supabase = createClient(supabaseURL, supabaseKEY);
 
 const retrieve_club = async (club_id:number) => {
