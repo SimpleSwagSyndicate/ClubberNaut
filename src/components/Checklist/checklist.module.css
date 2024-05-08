@@ -1,0 +1,13 @@
+.title {
+  font-family:
+    Greycliff CF,
+    var(--mantine-font-family);
+  font-weight: 900;
+  position: relative;
+  color: #971b2f;
+}
+
+.container {
+  position: relative;
+  left: 25px;
+}
