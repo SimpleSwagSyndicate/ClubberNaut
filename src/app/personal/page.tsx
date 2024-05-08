@@ -35,6 +35,15 @@ const retrieve_followed_clubs = async (user_id: number) => {
   return user_clubs;
 };
 
+const retrieve_club_id = async (club_name:string) => {
+  const {data: clubid, error} = await supabase
+    .from('Club Profile')
+    .select('clubid')
+    .eq('name',club_name)
+  const club_id = clubid[0].clubid
+  return club_id
+}
+
 export default function personal() {
   const user = useContext(UserContext);
   const user_id = user.userid;
@@ -63,7 +72,9 @@ export default function personal() {
                   shadow="lg"
                   p={50}
                   radius={50}
-                  onClick={() => {
+                  onClick={async () => {
+                    const club_id = await retrieve_club_id(c)
+                    user.updateClubId(club_id)
                     router.push('/clubhome');
                   }}
                 >
