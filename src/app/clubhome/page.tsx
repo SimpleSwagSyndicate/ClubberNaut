@@ -45,8 +45,10 @@ const retrieve_club = async (club_id:number) => {
   const club_advisors = Object.entries(advisors)
 
   const updates = club_data.recent_update[0]
-  const club_updates: any[] = Object.values(updates)
-
+  let club_updates: any[] = []
+  if (updates !== undefined){
+    club_updates = Object.values(updates)
+  }
   return [club_name,club_description,club_tags,club_updates,club_advisors]
 }
 

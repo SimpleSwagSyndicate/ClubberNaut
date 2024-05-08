@@ -1,9 +1,26 @@
 import { Card, Image, Text, Group, Badge, Button, CardSection, Anchor } from '@mantine/core';
 import classes from './BadgeCard.module.css';
 import { Link } from 'next/link';
+import { UserContext } from '@/controllers/UserInfo';
+import { useContext, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
+const { createClient } = require('@supabase/supabase-js');
+const supabaseURL = '***REMOVED***';
+const supabaseKEY = '***REMOVED***'
+const supabase = createClient(supabaseURL, supabaseKEY);
+
+const retrieve_club_id = async (club_name) => {
+  const {data: clubid, error} = await supabase
+    .from('Club Profile')
+    .select('clubid')
+    .eq('name',club_name)
+  const club_id = clubid[0].clubid
+  return club_id
+}
+
 export const BadgeCard = props => {
+  const user = useContext(UserContext);
   const features = props.tags.map(tag => (
     <Badge color="white" variant="light" key={tag}>
       {tag}
@@ -23,7 +40,9 @@ export const BadgeCard = props => {
             gradient={{ from: 'white', to: '#971B2F' }}
             fz="lg"
             fw={500}
-            onClick={() => {
+            onClick={async () => {
+              const club_id = await retrieve_club_id(props.name)
+              user.updateClubId(club_id)
               router.push('/clubhome');
             }}
             underline="never"
