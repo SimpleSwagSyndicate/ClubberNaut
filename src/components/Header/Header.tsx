@@ -47,7 +47,7 @@ const fetchUsernameByEmail = async (email: any) => {
 };
 export function Header() {
   const user = useContext(UserContext);
-  const router = useRouter()
+  const router = useRouter();
   useEffect(() => {
     const fetch = async () => {
       let Name = await fetchUsernameByEmail(user.email);
@@ -68,13 +68,28 @@ export function Header() {
                 src="/clubbernaut-high-resolution-logo-transparent.png"
                 alt="Logo"
               />
-              <a onClick = {() => {router.push('/')}} className={classes.link}>
+              <a
+                onClick={() => {
+                  router.push('/');
+                }}
+                className={classes.link}
+              >
                 Home
               </a>
-              <a onClick = {() => {router.push('/personal')}} className={classes.link}>
+              <a
+                onClick={() => {
+                  router.push('/personal');
+                }}
+                className={classes.link}
+              >
                 Personal
               </a>
-              <a onClick = {() => {router.push('/clubsearch')}} className={classes.link}>
+              <a
+                onClick={() => {
+                  router.push('/clubsearch');
+                }}
+                className={classes.link}
+              >
                 Search
               </a>
             </Group>
