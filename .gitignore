@@ -40,3 +40,8 @@ next-env.d.ts
 
 net.config.js
 next.config.mjs
+
+
+/clubbernaut-app/
+/clubbernaut/
+/login-signup-app/
