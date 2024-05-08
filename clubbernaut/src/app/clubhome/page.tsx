@@ -69,7 +69,7 @@ export default function clubhome(id: any) {
   const club_tags = club_data[2]
   const club_updates = club_data[3]
   const club_advisors = club_data[4]
-  
+
   return (
     <div>
       <Stack className={classes.section}>
