@@ -1,8 +1,7 @@
 const { createClient } = require('@supabase/supabase-js');
 const uuid = require('uuid');
 const supabaseURL = '***REMOVED***';
-const supabaseKEY =
-  '***REMOVED***';
+const supabaseKEY = '***REMOVED***'
 const supabase = createClient(supabaseURL, supabaseKEY);
 
 const SignUp = async (user_name, user_password, user_confirm_password, user_email) => {

@@ -21,7 +21,7 @@ import { UserContext } from '@/controllers/UserInfo';
 
 const { createClient } = require('@supabase/supabase-js');
 const supabaseURL = '***REMOVED***';
-const supabaseKEY ='***REMOVED***';
+const supabaseKEY = '***REMOVED***'
 const supabase = createClient(supabaseURL, supabaseKEY);
 
 const retrieve_club = async (club_id:number) => {
@@ -124,7 +124,7 @@ export default function clubhome(id: any) {
             </Badge>
           ))}
           {club_advisors?.map((advisor:any) => (
-            <Text style={{ textAlign: 'center' }}>{advisor[0]}:  {advisor[1].name}</Text>
+            <Text style={{ textAlign: 'center' }}>{advisor[0]}:  {advisor[1].name} {advisor[1].email}</Text>
           ))}
         </Stack>
       </Paper>

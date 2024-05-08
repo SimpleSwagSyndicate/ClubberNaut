@@ -1,7 +1,6 @@
 const { createClient } = require('@supabase/supabase-js');
 const supabaseURL = '***REMOVED***';
-const supabaseKEY =
-  '***REMOVED***';
+const supabaseKEY = '***REMOVED***'
 const supabase = createClient(supabaseURL, supabaseKEY);
 const uuid = require('uuid');
 

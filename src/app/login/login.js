@@ -1,7 +1,7 @@
 const { createClient } = require('@supabase/supabase-js');
 
-const supabaseURL = process.env.SUPABASE_URL;
-const supabaseKEY = process.env.SUPABASE_KEY;
+const supabaseURL = '***REMOVED***';
+const supabaseKEY = '***REMOVED***'
 const supabase = createClient(supabaseURL, supabaseKEY);
 
 const logIn = async (user_email, user_password) => {

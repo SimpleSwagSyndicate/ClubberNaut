@@ -21,8 +21,7 @@ import { useRouter } from 'next/navigation';
 
 const { createClient } = require('@supabase/supabase-js');
 const supabaseURL = '***REMOVED***';
-const supabaseKEY =
-  '***REMOVED***';
+const supabaseKEY = '***REMOVED***'
 const supabase = createClient(supabaseURL, supabaseKEY);
 
 const retrieve_followed_clubs = async (user_id: number) => {
