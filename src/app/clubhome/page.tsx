@@ -21,7 +21,7 @@ import { UserContext } from '@/controllers/UserInfo';
 
 const { createClient } = require('@supabase/supabase-js');
 const supabaseURL = 'https://fricdlpilwnfjdmtvvle.supabase.co';
-const supabaseKEY ='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZyaWNkbHBpbHduZmpkbXR2dmxlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDg2MzQ1NzEsImV4cCI6MjAyNDIxMDU3MX0.PWWh9fYaHNEOoEC61p7k4TcdmrYwe-M5EWV5mwBC-Xk';
+const supabaseKEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZyaWNkbHBpbHduZmpkbXR2dmxlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDg2MzQ1NzEsImV4cCI6MjAyNDIxMDU3MX0.PWWh9fYaHNEOoEC61p7k4TcdmrYwe-M5EWV5mwBC-Xk'
 const supabase = createClient(supabaseURL, supabaseKEY);
 
 const retrieve_club = async (club_id:number) => {
@@ -45,8 +45,10 @@ const retrieve_club = async (club_id:number) => {
   const club_advisors = Object.entries(advisors)
 
   const updates = club_data.recent_update[0]
-  const club_updates: any[] = Object.values(updates)
-
+  let club_updates: any[] = []
+  if (updates !== undefined){
+    club_updates = Object.values(updates)
+  }
   return [club_name,club_description,club_tags,club_updates,club_advisors]
 }
 
@@ -124,7 +126,7 @@ export default function clubhome(id: any) {
             </Badge>
           ))}
           {club_advisors?.map((advisor:any) => (
-            <Text style={{ textAlign: 'center' }}>{advisor[0]}:  {advisor[1].name}</Text>
+            <Text style={{ textAlign: 'center' }}>{advisor[0]}:  {advisor[1].name} {advisor[1].email}</Text>
           ))}
         </Stack>
       </Paper>

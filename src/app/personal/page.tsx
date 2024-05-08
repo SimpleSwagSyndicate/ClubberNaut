@@ -21,8 +21,7 @@ import { useRouter } from 'next/navigation';
 
 const { createClient } = require('@supabase/supabase-js');
 const supabaseURL = 'https://fricdlpilwnfjdmtvvle.supabase.co';
-const supabaseKEY =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZyaWNkbHBpbHduZmpkbXR2dmxlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDg2MzQ1NzEsImV4cCI6MjAyNDIxMDU3MX0.PWWh9fYaHNEOoEC61p7k4TcdmrYwe-M5EWV5mwBC-Xk';
+const supabaseKEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZyaWNkbHBpbHduZmpkbXR2dmxlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDg2MzQ1NzEsImV4cCI6MjAyNDIxMDU3MX0.PWWh9fYaHNEOoEC61p7k4TcdmrYwe-M5EWV5mwBC-Xk'
 const supabase = createClient(supabaseURL, supabaseKEY);
 
 const retrieve_followed_clubs = async (user_id: number) => {
@@ -35,6 +34,15 @@ const retrieve_followed_clubs = async (user_id: number) => {
 
   return user_clubs;
 };
+
+const retrieve_club_id = async (club_name:string) => {
+  const {data: clubid, error} = await supabase
+    .from('Club Profile')
+    .select('clubid')
+    .eq('name',club_name)
+  const club_id = clubid[0].clubid
+  return club_id
+}
 
 export default function personal() {
   const user = useContext(UserContext);
@@ -64,7 +72,9 @@ export default function personal() {
                   shadow="lg"
                   p={50}
                   radius={50}
-                  onClick={() => {
+                  onClick={async () => {
+                    const club_id = await retrieve_club_id(c)
+                    user.updateClubId(club_id)
                     router.push('/clubhome');
                   }}
                 >
