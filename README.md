@@ -6,4 +6,6 @@ Proud project presented by Simple Swag Syncidate! We aim to provide a user-frien
 
 Please write down your name using push:
 
-Jianxin Lin, Steven Arbo, Max Loper
+Jianxin Lin
+Max Loper
+Steven Arbo
