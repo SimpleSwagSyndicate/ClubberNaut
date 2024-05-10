@@ -1,8 +1,7 @@
 .title {
-  position: absolute;
-  text-align: center;
-  left: 50%;
+  position:absolute;
   top: 15%;
+  left:40%;
   font-size: 45px;
 }
 .scroll {
@@ -16,4 +15,9 @@
   left: 10%;
   width: 350px;
   height: 350px;
+}
+.section {
+  position: absolute;
+  left: 45%;
+  top:25%;
 }

@@ -5,7 +5,7 @@ import {
   Stack,
   Text,
   Title,
-  Input,
+  Container,
   Image,
   Paper,
   ScrollArea,
@@ -72,9 +72,10 @@ export default function clubhome(id: any) {
 
   return (
     <div>
-      <Stack className={classes.section}>
+      <Container>
+      <Stack>
         <Title className={classes.title}>Welcome to {club_name}</Title>
-        <Text style={{ textAlign: 'center' }}>{club_description}</Text>
+        <Text className={classes.section}>{club_description}</Text>
         <ScrollArea className={classes.scroll} w={700} h={500}>
           {club_updates?.map((c:any,index:number) => (
             <div key = {index}>
@@ -98,6 +99,7 @@ export default function clubhome(id: any) {
           ))}
         </ScrollArea>
       </Stack>
+      </Container>
       <Paper
         className={classes.icon}
         shadow="lg"
@@ -118,11 +120,14 @@ export default function clubhome(id: any) {
               <IconBell />
             </ActionIcon>
           </Group>
+          <Group>
           {club_tags?.map((tag:string) => (
             <Badge color="white" variant="light" key={tag}>
               {tag}
             </Badge>
+            
           ))}
+          </Group>
           {club_advisors?.map((advisor:any) => (
             <Text style={{ textAlign: 'center' }}>{advisor[0]}:  {advisor[1].name} {advisor[1].email}</Text>
           ))}
