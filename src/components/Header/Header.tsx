@@ -56,6 +56,17 @@ export function Header() {
   }, [user.email]);
   const { setColorScheme } = useMantineColorScheme();
   const computedColorScheme = useComputedColorScheme('dark', { getInitialValueInEffect: true });
+
+  const handleSignOutClick = () => {
+    useEffect(() => {
+      const fetch = async () => {
+        let Name = await fetchUsernameByEmail(user.email);
+        user.updateName("");
+      };
+      fetch();
+    }, []);
+  }
+
   return (
     <UserInfo>
       <Box pb={120}>
@@ -104,7 +115,19 @@ export function Header() {
               </ActionIcon>
               <div>
                 {user.email ? (
-                  <span>Welcome, {user.name}</span>
+                  <>
+                    <span>
+                      Welcome, {user.name}
+                    </span> 
+                    <Button 
+                      color="#971B2F" 
+                      component = {Link} 
+                      onClick = {handleSignOutClick} 
+                      href="/login"
+                    > 
+                      Sign Out
+                    </Button>
+                  </>
                 ) : (
                   <>
                     <Group>
