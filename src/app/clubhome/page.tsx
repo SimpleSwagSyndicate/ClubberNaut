@@ -18,7 +18,7 @@ import { IconBellRinging, IconBell } from '@tabler/icons-react';
 import cx from 'clsx';
 import { useContext, useEffect, useState } from 'react';
 import { UserContext } from '@/controllers/UserInfo';
-
+import {FollowButton} from './FollowButton'
 const { createClient } = require('@supabase/supabase-js');
 const supabaseURL = process.env.SUPABASE_URL;
 const supabaseKEY = process.env.SUPABASE_KEY;
@@ -63,14 +63,16 @@ export default function clubhome(id: any) {
       setClub(club)
     }
     fetch()
-  },[user.clubid])
+  },[user.clubid, user.userid])
 
-  console.log(club_data)
+  // console.log(club_data)
   const club_name = club_data[0]
   const club_description = club_data[1]
   const club_tags = club_data[2]
   const club_updates = club_data[3]
   const club_advisors = club_data[4]
+
+  console.log(club_data[0] + " clubnamepre")
 
   return (
     <div>
@@ -112,9 +114,7 @@ export default function clubhome(id: any) {
             fit="cover"
           />
           <Group>
-            <Button color="#971B2F" w={295}>
-              Follow
-            </Button>
+            {club_data ? <FollowButton clubName = {club_data[0]} userID = {user.userid}/> : <Button color="#971B2F" w={295}></Button>}
             <ActionIcon h={35} w={35} style={{ backgroundColor: 'black' }}>
               {/*<IconBellRinging />*/}
               <IconBell />
