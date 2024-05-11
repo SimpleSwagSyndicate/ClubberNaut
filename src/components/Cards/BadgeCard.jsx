@@ -4,6 +4,7 @@ import { Link } from 'next/link';
 import { UserContext } from '@/controllers/UserInfo';
 import { useContext, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { FollowButton } from '@/app/clubhome/FollowButton';
 
 const { createClient } = require('@supabase/supabase-js');
 const supabaseURL = process.env.SUPABASE_URL;
@@ -21,6 +22,7 @@ const retrieve_club_id = async (club_name) => {
 
 export const BadgeCard = props => {
   const user = useContext(UserContext);
+  const userid = user.userid
   const features = props.tags.map(tag => (
     <Badge color="white" variant="light" key={tag}>
       {tag}
@@ -62,9 +64,7 @@ export const BadgeCard = props => {
       </CardSection>
       <CardSection className={classes.buttonsection}>
         <Group mt="xs">
-          <Button color="#971B2F" radius="md" style={{ flex: 1 }}>
-            Follow
-          </Button>
+        {props.name ? <FollowButton clubName = {props.name} userID = {userid}/> : <Button color="#971B2F" w={295}></Button>}
         </Group>
       </CardSection>
     </Card>

@@ -24,7 +24,7 @@ const supabaseURL = process.env.SUPABASE_URL;
 const supabaseKEY = process.env.SUPABASE_KEY;
 const supabase = createClient(supabaseURL, supabaseKEY);
 
-const retrieve_followed_clubs = async (user_id: number) => {
+export const retrieve_followed_clubs = async (user_id: number) => {
   const { data: clubs, error } = await supabase
     .from('User Profile V1a')
     .select('clubs')
@@ -52,8 +52,10 @@ export default function personal() {
 
   useEffect(() => {
     const fetch = async () => {
-      let clubs = await retrieve_followed_clubs(user_id);
-      setClubs(clubs);
+      if(user_id !== 0){
+        let clubs = await retrieve_followed_clubs(user_id);
+        setClubs(clubs);
+      }
     };
     fetch();
   }, [user_id]);
