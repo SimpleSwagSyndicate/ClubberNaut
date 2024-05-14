@@ -18,6 +18,7 @@
   font-weight: 900;
   top: 110px;
   right: 140px;
+  color: #FFFFFF
 }
 
 .updates {
@@ -34,8 +35,10 @@
 .club {
   font-weight: 900;
   font-size: 180%;
+  color: #FFFFFF;
 }
 
 .content {
   font-weight: 700;
+  color: #FFFFFF
 }
