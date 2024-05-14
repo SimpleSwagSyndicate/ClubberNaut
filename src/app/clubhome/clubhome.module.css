@@ -1,19 +1,20 @@
-.title {
-  position: absolute;
-  text-align: center;
-  left: 50%;
-  top: 15%;
-  font-size: 45px;
-}
+
 .scroll {
-  position: absolute;
-  left: 40%;
-  top: 50%;
+  margin: auto;
 }
+
 .icon {
   position: absolute;
   top: 15%;
   left: 10%;
   width: 350px;
   height: 350px;
+}
+
+.section {
+  position: absolute;
+  width: 50%;
+  margin-left: 40rem;
+  top: 15%;
+  height: 600px;
 }
