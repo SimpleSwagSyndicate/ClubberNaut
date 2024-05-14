@@ -80,7 +80,7 @@ export function Hero() {
 
   return (
     <div>
-      <Title className={classes.update}>Here's what's going on in your communities...</Title>
+      <text className={classes.update}>Here's what's going on in your communities...</text>
       <div>
         <Image
           className={classes.logo}
@@ -97,24 +97,27 @@ export function Hero() {
               user.updateClubId(club_id)
               router.push('/clubhome');
             }} shadow="lg" p={50} radius={50}>
-                  <Text c="#FFFFFF" className={classes.club}>
+                  <text className={classes.club}>
                     {' '}
                     {c.club}{' '}
-                  </Text>
-                  <br></br>
-                  <Text c="#FFFFFF" className={classes.content}>
+                  </text>
+                  <br/>
+                  <br/>
+                  <text className={classes.content}>
                     {' '}
                     {c.date}{' '}
-                  </Text>
-                  <Text c="#FFFFFF" className={classes.content}>
+                  </text>
+                  <br/>
+                  <text className={classes.content}>
                     {' '}
                     {c.title}{' '}
-                  </Text>
-                  <br></br>
-                  <Text c="#FFFFFF" className={classes.content}>
+                  </text>
+                  <br/>
+                  <br/>
+                  <text className={classes.content}>
                     {' '}
                     {c.description}{' '}
-                  </Text>
+                  </text>
                 </Paper>
                 <Space h="md" />
               </div>
