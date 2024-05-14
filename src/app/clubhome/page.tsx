@@ -77,7 +77,7 @@ export default function clubhome(id: any) {
   return (
     <div>
       <Stack className={classes.section}>
-        <Title className={classes.title}>Welcome to {club_name}</Title>
+      <Title style={{ textAlign: 'center' }} >Welcome to {club_name}</Title>
         <Text style={{ textAlign: 'center' }}>{club_description}</Text>
         <ScrollArea className={classes.scroll} w={700} h={500}>
           {club_updates?.map((c:any,index:number) => (
