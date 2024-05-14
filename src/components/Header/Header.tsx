@@ -116,6 +116,7 @@ export function Header() {
               <div>
                 {user.email ? (
                   <>
+                  <Group>
                     <span>
                       Welcome, {user.name}
                     </span> 
@@ -127,6 +128,7 @@ export function Header() {
                     > 
                       Sign Out
                     </Button>
+                    </Group>
                   </>
                 ) : (
                   <>
