@@ -2,6 +2,7 @@ import React from 'react';
 import { Modal, Text } from '@mantine/core';
 
 function Popup({ events, onClose }) {
+  // console.log(events[0])
   return (
     <Modal
       opened

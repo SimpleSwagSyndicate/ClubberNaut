@@ -32,7 +32,7 @@ export const CalendarWithPopup = (props) => {
     // console.log()
     const events = clubEvents.map(club => findEvents(club.recent_update[0], date)).flat();
     // console.log(date)
-    console.log(events)
+    // console.log(events)
     
 
     return (
@@ -81,12 +81,13 @@ export const CalendarWithPopup = (props) => {
   const findEvents = (club, date) => {
     let updateNum = 1;
     let events = [];
-
+    if(club !== undefined){
     while (club["Update " + updateNum] !== undefined) {
       if (club["Update " + updateNum]["date"] === date)
         events.push(club["Update " + updateNum]);
       updateNum++;
     }
+  }
 
     return events;
   };
