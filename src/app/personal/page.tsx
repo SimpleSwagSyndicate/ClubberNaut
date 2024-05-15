@@ -14,6 +14,7 @@ import {
   Button,
   Space,
 } from '@mantine/core';
+import  {CalendarWithPopup}  from '@/components/PersonalCalendar/CalendarWPopup';
 import { PersonalCalendar } from '@/components/PersonalCalendar/PersonalCalendar';
 import { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../controllers/UserInfo';
@@ -98,7 +99,7 @@ export default function personal() {
       </Group>
       <Container className={classes.border} />
       <Container className={classes.calendar}>
-        <PersonalCalendar />
+        <CalendarWithPopup clubs={clubs}/>
       </Container>
     </div>
   );
