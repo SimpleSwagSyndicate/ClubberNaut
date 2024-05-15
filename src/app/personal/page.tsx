@@ -67,6 +67,9 @@ export default function personal() {
       <Group>
         <Title className={classes.title}>Your Clubs</Title>
         <Stack>
+        {user.email ? (
+        <div>
+        {content.length != 0 ? (
           <ScrollArea className={classes.scroll} w={300} h={500}>
             {content.map((c: any, index: number) => (
               <div key={index}>
@@ -87,7 +90,23 @@ export default function personal() {
               </div>
             ))}
           </ScrollArea>
-          <Button
+          ):(
+            <div className={classes.message}>
+            <Paper withBorder p="xl">
+            <text className={classes.text1}>You follow no clubs</text>
+            </Paper>
+            </div>
+          )}
+          </div>
+          ):(
+            <div className={classes.message}>
+            <Paper withBorder p="xl">
+            <text className={classes.text2}>Log in to see your clubs</text>
+            </Paper>
+            </div>
+          )}
+          {user.email ? (
+            <Button
             className={classes.button}
             component={Link}
             href="/clubcreation"
@@ -95,6 +114,17 @@ export default function personal() {
           >
             Create Club
           </Button>
+          ):(
+            <Button
+            className={classes.button}
+            component={Link}
+            href="/login"
+            variant="default"
+          >
+            Create Club
+          </Button>
+          )
+          }
         </Stack>
       </Group>
       <Container className={classes.border} />

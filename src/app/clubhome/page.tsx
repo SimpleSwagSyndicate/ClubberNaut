@@ -117,11 +117,26 @@ export default function clubhome(id: any) {
           />
           <Group>
             {club_data ? <FollowButton clubName = {club_data[0]} userID = {user.userid}/> : <Button color="#971B2F" w={295}></Button>}
-            <ActionIcon 
+            {user.email ? (
+              <ActionIcon 
+              h={35}
+              w={35}
+              component={Link}
+              href='/updatecreation' 
+              style={{ backgroundColor: 'white' }}>
+                <img 
+                src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRs5zjQLl6LKORaiXMgf6cd8IvGn-SFynjyCP2U9fqXHA&s'
+                width={20}
+                height={20}
+                >
+                </img>
+              </ActionIcon>
+            ): (
+              <ActionIcon 
             h={35}
             w={35}
             component={Link}
-            href='/updatecreation' 
+            href='/login' 
             style={{ backgroundColor: 'white' }}>
               <img 
               src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRs5zjQLl6LKORaiXMgf6cd8IvGn-SFynjyCP2U9fqXHA&s'
@@ -130,6 +145,7 @@ export default function clubhome(id: any) {
               >
               </img>
             </ActionIcon>
+            )}
             <ActionIcon h={35} w={35} style={{ backgroundColor: 'black' }}>
               {/*<IconBellRinging />*/}
               <IconBell />
