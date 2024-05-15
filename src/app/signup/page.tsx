@@ -40,7 +40,7 @@ export default function signup() {
   const router = useRouter();
 
   const handleSignup = async () => {
-    const username: string = firstName.value + lastName.value;
+    const username: string = firstName.value + " " + lastName.value;
     const res = await SignUp(username, password.value, confirmPassword.value, email.value);
     if (res.status == 'Success') {
       router.push('/login');
