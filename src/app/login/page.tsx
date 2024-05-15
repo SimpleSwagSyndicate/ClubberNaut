@@ -83,7 +83,7 @@ export default function login() {
         </Title>
         <Text c="dimmed" size="sm" ta="center" mt={5}>
           Do not have an account yet?{' '}
-          <Anchor size="sm" component={Link} href="/signup">
+          <Anchor c='#E20025'size="sm" component={Link} href="/signup">
             Create account
           </Anchor>
         </Text>
@@ -108,12 +108,13 @@ export default function login() {
           />
           <Group justify="space-between" mt="lg">
             <Checkbox label="Remember me" />
-            <Anchor component="button" size="sm">
+            <Anchor c='#E20025' component="button" size="sm">
               Forgot password?
             </Anchor>
           </Group>
           <Space h={30}/>
           <Button
+            color="#971B2F"
             className={classes.login}
             onClick={() => {
               handleLogin();

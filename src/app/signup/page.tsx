@@ -58,7 +58,7 @@ export default function signup() {
         </Title>
         <Text c="dimmed" size="sm" ta="center" mt={5}>
           Already have an account?{' '}
-          <Anchor size="sm" component={Link} href="/login">
+          <Anchor c='#E20025' size="sm" component={Link} href="/login">
             Login
           </Anchor>
         </Text>
@@ -94,7 +94,7 @@ export default function signup() {
             <Checkbox label="Remember me" />
           </Group>
 
-          <Button onClick={handleSignup} fullWidth mt="xl">
+          <Button color="#971B2F" onClick={handleSignup} fullWidth mt="xl">
             Sign up
           </Button>
         </Paper>
