@@ -1,6 +1,6 @@
 'use client';
 
-import { Image, Paper, ScrollArea, Text, Title, Space } from '@mantine/core';
+import { Image, Paper, ScrollArea, Text, Title, Space, Container } from '@mantine/core';
 import classes from './Hero.module.css';
 import { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../controllers/UserInfo';
@@ -89,6 +89,9 @@ export function Hero() {
         />
 
         <div className={classes.scroll}>
+          {user.email ? (
+          <div>  
+          {content.length != 0 ? (
           <ScrollArea w={600} h={600}>
             {content.map((c: any, index) => (
               <div key={index}>
@@ -123,6 +126,21 @@ export function Hero() {
               </div>
             ))}
           </ScrollArea>
+          ) : (
+            <div>
+            <Paper className={classes.message} withBorder p="xl">
+            <text className={classes.text1}>You have no new updates</text>
+            </Paper>
+            </div>
+          )}
+          </div>
+        ):(
+          <div>
+            <Paper className={classes.message} withBorder p="xl">
+            <text className={classes.text2}>Log in to see updates!</text>
+            </Paper>
+            </div>
+        )}
         </div>
       </div>
     </div>
