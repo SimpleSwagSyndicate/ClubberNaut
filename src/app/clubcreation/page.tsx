@@ -55,6 +55,10 @@ export default function clubcreation() {
               <TagBox label={'Music'} handleCheck={handleCheck} />
               <TagBox label={'Sport'} handleCheck={handleCheck} />
               <TagBox label={'Adventure'} handleCheck={handleCheck} />
+              <TagBox label={'Dance'} handleCheck={handleCheck} />
+              <TagBox label={'Environment'} handleCheck={handleCheck} />
+              <TagBox label={'Animal'} handleCheck={handleCheck} />
+              <TagBox label={'Debate'} handleCheck={handleCheck} />
             </Group>
           </Stack>
           <Textarea
