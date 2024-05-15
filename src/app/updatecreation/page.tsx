@@ -74,7 +74,7 @@ const MakeUpdate = async (club_name:string,date:string,title:string,description:
 
 }
 
-const convertData = (value:string) => {
+const convertFormat = (value:string) => {
   const date = new Date(value);
   const day = date.getDate()
   let month = String(date.getMonth() + 1)
@@ -86,7 +86,6 @@ const convertData = (value:string) => {
   return String(month)+"/"+String(day)+"/"+String(year)
 }
 
-
 export default function updatecreation() {
   const [value, setValue] = useState<Date | null>(null);
   const [club_name, setClubName] = useState('');
@@ -94,7 +93,7 @@ export default function updatecreation() {
   const [description,setDescription] = useState('');
 
   const handleCreateUpdate = async () => {
-    const res = await MakeUpdate(club_name,convertData(String(value)),title,description)
+    const res = await MakeUpdate(club_name.trim(),convertFormat(String(value)),title,description)
     alert(res.msg);
   }
 
@@ -111,7 +110,7 @@ export default function updatecreation() {
             label="Club Name"
             placeholder="Club Name"
             variant="filled"
-            onChange = {e => setClubName(e.target.value)}
+            onChange = {(e:any) => setClubName(e.target.value)}
             className={classes.section}
           />
           <DatePickerInput
