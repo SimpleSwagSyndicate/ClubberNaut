@@ -25,8 +25,8 @@ const MakeUpdate = async (club_name:string,date:string,title:string,description:
   const {data:update, error } = await supabase
     .from('Club Profile')
     .select('recent_update')
-    .eq('name',club_name)
-  
+    .ilike('name','%' + club_name + '%')
+
   if (error){
     return { status : 'Error', msg: `${error}`}
   }
@@ -49,7 +49,7 @@ const MakeUpdate = async (club_name:string,date:string,title:string,description:
     const {data, error} = await supabase
         .from('Club Profile')
         .update({recent_update : update_list})
-        .eq('name',club_name)
+        .ilike('name','%' + club_name + '%')
     
     return { status : 'Success', msg: 'Update has been added.'}
   }
@@ -67,7 +67,7 @@ const MakeUpdate = async (club_name:string,date:string,title:string,description:
     const {data, error} = await supabase
         .from('Club Profile')
         .update({recent_update : update_list})
-        .eq('name',club_name)
+        .ilike('name','%' + club_name + '%')
 
     return { status : 'Success', msg: 'Update has been added.'}
   }
