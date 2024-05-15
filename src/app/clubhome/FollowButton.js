@@ -57,7 +57,7 @@ export const FollowButton = props => {
 
   return (
     <UserInfo>
-        <Button color="#971B2F" w={295} onClick={handle}>
+        <Button color="#971B2F" w={245} onClick={handle}>
             {followed ? "Unfollow" : "Follow"}
         </Button>
     </UserInfo>
