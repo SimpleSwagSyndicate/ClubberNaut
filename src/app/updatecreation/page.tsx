@@ -22,6 +22,11 @@ const supabaseKEY = process.env.SUPABASE_KEY;
 const supabase = createClient(supabaseURL, supabaseKEY);
 
 const MakeUpdate = async (club_name:string,date:string,title:string,description:string) => {
+
+  if (club_name.length == 0 || date.length == 0 || title.length == 0 || description.length == 0){
+    return {status : 'Error', msg : "Missing field required"}
+  }
+
   const {data:update, error } = await supabase
     .from('Club Profile')
     .select('recent_update')
@@ -75,6 +80,9 @@ const MakeUpdate = async (club_name:string,date:string,title:string,description:
 }
 
 const convertFormat = (value:string) => {
+  if (value.length == 0){
+    return ""
+  }
   const date = new Date(value);
   const day = date.getDate()
   let month = String(date.getMonth() + 1)
@@ -93,7 +101,7 @@ export default function updatecreation() {
   const [description,setDescription] = useState('');
 
   const handleCreateUpdate = async () => {
-    const res = await MakeUpdate(club_name.trim(),convertFormat(String(value)),title,description)
+    const res = await MakeUpdate(club_name.trim(),convertFormat(String(value)).trim(),title.trim(),description.trim())
     alert(res.msg);
   }
 
