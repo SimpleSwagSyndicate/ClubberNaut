@@ -18,8 +18,8 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 const { createClient } = require('@supabase/supabase-js');
-const supabaseURL = '***REMOVED***';
-const supabaseKEY = '***REMOVED***'
+const supabaseURL = process.env.SUPABASE_URL;
+const supabaseKEY = process.env.SUPABASE_KEY;
 const supabase = createClient(supabaseURL, supabaseKEY);
 // Function to fetch username based on email
 const fetchUsernameByEmail = async (email: any) => {
@@ -56,6 +56,17 @@ export function Header() {
   }, [user.email]);
   const { setColorScheme } = useMantineColorScheme();
   const computedColorScheme = useComputedColorScheme('dark', { getInitialValueInEffect: true });
+
+  const handleSignOutClick = () => {
+    useEffect(() => {
+      const fetch = async () => {
+        let Name = await fetchUsernameByEmail(user.email);
+        user.updateName("");
+      };
+      fetch();
+    }, []);
+  }
+
   return (
     <UserInfo>
       <Box pb={120}>
@@ -104,7 +115,21 @@ export function Header() {
               </ActionIcon>
               <div>
                 {user.email ? (
-                  <span>Welcome, {user.name}</span>
+                  <>
+                  <Group>
+                    <span>
+                      Welcome, {user.name}
+                    </span> 
+                    <Button 
+                      color="#971B2F" 
+                      component = {Link} 
+                      onClick = {handleSignOutClick} 
+                      href="/login"
+                    > 
+                      Sign Out
+                    </Button>
+                    </Group>
+                  </>
                 ) : (
                   <>
                     <Group>

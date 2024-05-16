@@ -5,7 +5,7 @@ import {
   Stack,
   Text,
   Title,
-  Container,
+  Input,
   Image,
   Paper,
   ScrollArea,
@@ -13,15 +13,17 @@ import {
   Group,
   Space,
   Badge,
+  rem,
 } from '@mantine/core';
+import Link from 'next/link';
 import { IconBellRinging, IconBell } from '@tabler/icons-react';
 import cx from 'clsx';
 import { useContext, useEffect, useState } from 'react';
 import { UserContext } from '@/controllers/UserInfo';
-
+import {FollowButton} from './FollowButton'
 const { createClient } = require('@supabase/supabase-js');
-const supabaseURL = '***REMOVED***';
-const supabaseKEY = '***REMOVED***'
+const supabaseURL = process.env.SUPABASE_URL;
+const supabaseKEY = process.env.SUPABASE_KEY;
 const supabase = createClient(supabaseURL, supabaseKEY);
 
 const retrieve_club = async (club_id:number) => {
@@ -45,8 +47,10 @@ const retrieve_club = async (club_id:number) => {
   const club_advisors = Object.entries(advisors)
 
   const updates = club_data.recent_update[0]
-  const club_updates: any[] = Object.values(updates)
-
+  let club_updates: any[] = []
+  if (updates !== undefined){
+    club_updates = Object.values(updates)
+  }
   return [club_name,club_description,club_tags,club_updates,club_advisors]
 }
 
@@ -61,21 +65,21 @@ export default function clubhome(id: any) {
       setClub(club)
     }
     fetch()
-  },[user.clubid])
+  },[user.clubid, user.userid])
 
-  console.log(club_data)
+  // console.log(club_data)
   const club_name = club_data[0]
   const club_description = club_data[1]
   const club_tags = club_data[2]
   const club_updates = club_data[3]
   const club_advisors = club_data[4]
 
+  console.log(club_data[0] + " clubnamepre")
+
   return (
     <div>
-      <Container>
-      <Stack>
-        <Title className={classes.title}>Welcome to {club_name}</Title>
-        <Text className={classes.section}>{club_description}</Text>
+      <Stack className={classes.section}>
+      <Title style={{ textAlign: 'center' }} >Welcome to {club_name}</Title>
         <ScrollArea className={classes.scroll} w={700} h={500}>
           {club_updates?.map((c:any,index:number) => (
             <div key = {index}>
@@ -100,34 +104,46 @@ export default function clubhome(id: any) {
         </ScrollArea>
       </Stack>
       </Container>
-      <Paper
-        className={classes.icon}
-        shadow="lg"
-        style={{ backgroundColor: '#971B2F' }}
-        radius="lg"
-      >
-        <Stack>
-          <Image
-            src="https://upload.wikimedia.org/wikipedia/commons/4/4f/UMass_Seal_Medium_PMS_202.png"
-            fit="cover"
-          />
-          <Group>
-            <Button color="#971B2F" w={295}>
-              Follow
-            </Button>
+            {club_data ? <FollowButton clubName = {club_data[0]} userID = {user.userid}/> : <Button color="#971B2F" w={295}></Button>}
+            {user.email ? (
+              <ActionIcon 
+              h={35}
+              w={35}
+              component={Link}
+              href='/updatecreation' 
+              style={{ backgroundColor: 'white' }}>
+                <img 
+                src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRs5zjQLl6LKORaiXMgf6cd8IvGn-SFynjyCP2U9fqXHA&s'
+                width={20}
+                height={20}
+                >
+                </img>
+              </ActionIcon>
+            ): (
+              <ActionIcon 
+            h={35}
+            w={35}
+            component={Link}
+            href='/login' 
+            style={{ backgroundColor: 'white' }}>
+              <img 
+              src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRs5zjQLl6LKORaiXMgf6cd8IvGn-SFynjyCP2U9fqXHA&s'
+              width={20}
+              height={20}
+              >
+              </img>
+            </ActionIcon>
+            )}
             <ActionIcon h={35} w={35} style={{ backgroundColor: 'black' }}>
               {/*<IconBellRinging />*/}
               <IconBell />
             </ActionIcon>
           </Group>
-          <Group>
           {club_tags?.map((tag:string) => (
             <Badge color="white" variant="light" key={tag}>
               {tag}
             </Badge>
-            
           ))}
-          </Group>
           {club_advisors?.map((advisor:any) => (
             <Text style={{ textAlign: 'center' }}>{advisor[0]}:  {advisor[1].name} {advisor[1].email}</Text>
           ))}

@@ -10,6 +10,7 @@ import {
   Container,
   Group,
   Button,
+  Space
 } from '@mantine/core';
 import classes from './login.module.css';
 import Link from 'next/link';
@@ -19,8 +20,8 @@ import { useRouter } from 'next/navigation';
 import { UserContext } from '@/controllers/UserInfo';
 
 const { createClient } = require('@supabase/supabase-js');
-const supabaseURL = '***REMOVED***';
-const supabaseKEY = '***REMOVED***'
+const supabaseURL = process.env.SUPABASE_URL;
+const supabaseKEY = process.env.SUPABASE_KEY;
 const supabase = createClient(supabaseURL, supabaseKEY);
 
 const fetchUserIdByEmail = async (email: any) => {
@@ -82,7 +83,7 @@ export default function login() {
         </Title>
         <Text c="dimmed" size="sm" ta="center" mt={5}>
           Do not have an account yet?{' '}
-          <Anchor size="sm" component={Link} href="/signup">
+          <Anchor c='#E20025'size="sm" component={Link} href="/signup">
             Create account
           </Anchor>
         </Text>
@@ -107,11 +108,14 @@ export default function login() {
           />
           <Group justify="space-between" mt="lg">
             <Checkbox label="Remember me" />
-            <Anchor component="button" size="sm">
+            <Anchor c='#E20025' component="button" size="sm">
               Forgot password?
             </Anchor>
           </Group>
+          <Space h={30}/>
           <Button
+            color="#971B2F"
+            className={classes.login}
             onClick={() => {
               handleLogin();
             }}
