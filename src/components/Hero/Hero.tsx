@@ -26,7 +26,7 @@ const retrieve_updates = async (user_id: number) => {
     .from('User Profile V1a')
     .select('clubs')
     .eq('userid', user_id);
-  
+
   if (clubs === null){
     return [];
   }
