@@ -80,6 +80,7 @@ export default function clubhome(id: any) {
     <div>
       <Stack className={classes.section}>
       <Title style={{ textAlign: 'center' }} >Welcome to {club_name}</Title>
+        <Text style={{ textAlign: 'center' }}>{club_description}</Text>
         <ScrollArea className={classes.scroll} w={700} h={500}>
           {club_updates?.map((c:any,index:number) => (
             <div key = {index}>
@@ -103,7 +104,18 @@ export default function clubhome(id: any) {
           ))}
         </ScrollArea>
       </Stack>
-      </Container>
+      <Paper
+        className={classes.icon}
+        shadow="lg"
+        style={{ backgroundColor: '#971B2F' }}
+        radius="lg"
+      >
+        <Stack>
+          <Image
+            src="https://upload.wikimedia.org/wikipedia/commons/4/4f/UMass_Seal_Medium_PMS_202.png"
+            fit="cover"
+          />
+          <Group>
             {club_data ? <FollowButton clubName = {club_data[0]} userID = {user.userid}/> : <Button color="#971B2F" w={295}></Button>}
             {user.email ? (
               <ActionIcon 
