@@ -61,11 +61,11 @@ export function Header() {
     useEffect(() => {
       const fetch = async () => {
         let Name = await fetchUsernameByEmail(user.email);
-        user.updateName("");
+        user.updateName('');
       };
       fetch();
     }, []);
-  }
+  };
 
   return (
     <UserInfo>
@@ -116,18 +116,16 @@ export function Header() {
               <div>
                 {user.email ? (
                   <>
-                  <Group>
-                    <span>
-                      Welcome, {user.name}
-                    </span> 
-                    <Button 
-                      color="#971B2F" 
-                      component = {Link} 
-                      onClick = {handleSignOutClick} 
-                      href="/login"
-                    > 
-                      Sign Out
-                    </Button>
+                    <Group>
+                      <span>Welcome, {user.name}</span>
+                      <Button
+                        color="#971B2F"
+                        component={Link}
+                        onClick={handleSignOutClick}
+                        href="/login"
+                      >
+                        Sign Out
+                      </Button>
                     </Group>
                   </>
                 ) : (

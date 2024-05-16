@@ -7,7 +7,7 @@ export function UserInfo({ children }) {
   const [userid, setUserId] = useState(3521);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [clubid, setClubId] = useState(6)
+  const [clubid, setClubId] = useState(6);
 
   const updateUserId = id => {
     console.log('update id to ' + id);
@@ -25,12 +25,14 @@ export function UserInfo({ children }) {
   };
 
   const updateClubId = clubid => {
-    console.log('update club id to: '+ clubid);
-    setClubId(clubid)
-  }
+    console.log('update club id to: ' + clubid);
+    setClubId(clubid);
+  };
 
   return (
-    <UserContext.Provider value={{ userid, name, email, clubid, updateUserId, updateEmail, updateName, updateClubId }}>
+    <UserContext.Provider
+      value={{ userid, name, email, clubid, updateUserId, updateEmail, updateName, updateClubId }}
+    >
       {children}
     </UserContext.Provider>
   );

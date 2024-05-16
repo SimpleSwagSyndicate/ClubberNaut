@@ -40,7 +40,7 @@ export default function signup() {
   const router = useRouter();
 
   const handleSignup = async () => {
-    const username: string = firstName.value + " " + lastName.value;
+    const username: string = firstName.value + ' ' + lastName.value;
     const res = await SignUp(username, password.value, confirmPassword.value, email.value);
     if (res.status == 'Success') {
       router.push('/login');
@@ -58,7 +58,7 @@ export default function signup() {
         </Title>
         <Text c="dimmed" size="sm" ta="center" mt={5}>
           Already have an account?{' '}
-          <Anchor c='#E20025' size="sm" component={Link} href="/login">
+          <Anchor c="#E20025" size="sm" component={Link} href="/login">
             Login
           </Anchor>
         </Text>

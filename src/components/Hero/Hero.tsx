@@ -12,14 +12,14 @@ const supabaseURL = process.env.SUPABASE_URL;
 const supabaseKEY = process.env.SUPABASE_KEY;
 const supabase = createClient(supabaseURL, supabaseKEY);
 
-const retrieve_club_id = async (club_name:string) => {
-  const {data: clubid, error} = await supabase
+const retrieve_club_id = async (club_name: string) => {
+  const { data: clubid, error } = await supabase
     .from('Club Profile')
     .select('clubid')
-    .eq('name',club_name)
-  const club_id = clubid[0].clubid
-  return club_id
-}
+    .eq('name', club_name);
+  const club_id = clubid[0].clubid;
+  return club_id;
+};
 
 const retrieve_updates = async (user_id: number) => {
   const { data: clubs, error } = await supabase
@@ -27,7 +27,7 @@ const retrieve_updates = async (user_id: number) => {
     .select('clubs')
     .eq('userid', user_id);
 
-  if (clubs === null){
+  if (clubs === null) {
     return [];
   }
 
@@ -75,7 +75,7 @@ export function Hero() {
       return content_with_club;
     })
     .flat();
-    
+
   const router = useRouter();
 
   return (
@@ -90,57 +90,51 @@ export function Hero() {
 
         <div className={classes.scroll}>
           {user.email ? (
-          <div>  
-          {content.length != 0 ? (
-          <ScrollArea w={600} h={600}>
-            {content.map((c: any, index) => (
-              <div key={index}>
-                <Paper style={{ backgroundColor: '#971B2F' }} onClick={async () => {
-              const club_id = await retrieve_club_id(c.club)
-              user.updateClubId(club_id)
-              router.push('/clubhome');
-            }} shadow="lg" p={50} radius={50}>
-                  <text className={classes.club}>
-                    {' '}
-                    {c.club}{' '}
-                  </text>
-                  <br/>
-                  <br/>
-                  <text className={classes.content}>
-                    {' '}
-                    {c.date}{' '}
-                  </text>
-                  <br/>
-                  <text className={classes.content}>
-                    {' '}
-                    {c.title}{' '}
-                  </text>
-                  <br/>
-                  <br/>
-                  <text className={classes.content}>
-                    {' '}
-                    {c.description}{' '}
-                  </text>
-                </Paper>
-                <Space h="md" />
-              </div>
-            ))}
-          </ScrollArea>
+            <div>
+              {content.length != 0 ? (
+                <ScrollArea w={600} h={600}>
+                  {content.map((c: any, index) => (
+                    <div key={index}>
+                      <Paper
+                        style={{ backgroundColor: '#971B2F' }}
+                        onClick={async () => {
+                          const club_id = await retrieve_club_id(c.club);
+                          user.updateClubId(club_id);
+                          router.push('/clubhome');
+                        }}
+                        shadow="lg"
+                        p={50}
+                        radius={50}
+                      >
+                        <text className={classes.club}> {c.club} </text>
+                        <br />
+                        <br />
+                        <text className={classes.content}> {c.date} </text>
+                        <br />
+                        <text className={classes.content}> {c.title} </text>
+                        <br />
+                        <br />
+                        <text className={classes.content}> {c.description} </text>
+                      </Paper>
+                      <Space h="md" />
+                    </div>
+                  ))}
+                </ScrollArea>
+              ) : (
+                <div>
+                  <Paper className={classes.message} withBorder p="xl">
+                    <text className={classes.text1}>You have no new updates</text>
+                  </Paper>
+                </div>
+              )}
+            </div>
           ) : (
             <div>
-            <Paper className={classes.message} withBorder p="xl">
-            <text className={classes.text1}>You have no new updates</text>
-            </Paper>
+              <Paper className={classes.message} withBorder p="xl">
+                <text className={classes.text2}>Log in to see updates!</text>
+              </Paper>
             </div>
           )}
-          </div>
-        ):(
-          <div>
-            <Paper className={classes.message} withBorder p="xl">
-            <text className={classes.text2}>Log in to see updates!</text>
-            </Paper>
-            </div>
-        )}
         </div>
       </div>
     </div>

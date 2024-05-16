@@ -34,19 +34,18 @@
 .club {
   font-weight: 900;
   font-size: 180%;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .content {
   font-weight: 700;
-  color: #FFFFFF
+  color: #ffffff;
 }
 
 .message {
   position: relative;
   width: 550px;
   right: 2rem;
-
 }
 
 .text1 {
