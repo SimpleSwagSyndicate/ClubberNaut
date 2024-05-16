@@ -34,8 +34,31 @@
 .club {
   font-weight: 900;
   font-size: 180%;
+  color: #FFFFFF;
 }
 
 .content {
   font-weight: 700;
+  color: #FFFFFF
+}
+
+.message {
+  position: relative;
+  width: 550px;
+  right: 2rem;
+
+}
+
+.text1 {
+  position: relative;
+  left: 2.8rem;
+  font-size: 200%;
+  font-weight: 800;
+}
+
+.text2 {
+  position: relative;
+  left: 4rem;
+  font-size: 200%;
+  font-weight: 800;
 }

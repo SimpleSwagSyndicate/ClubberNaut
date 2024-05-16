@@ -1,9 +1,28 @@
 import { Card, Image, Text, Group, Badge, Button, CardSection, Anchor } from '@mantine/core';
 import classes from './BadgeCard.module.css';
 import { Link } from 'next/link';
+import { UserContext } from '@/controllers/UserInfo';
+import { useContext, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { FollowButton } from '@/app/clubhome/FollowButton';
+
+const { createClient } = require('@supabase/supabase-js');
+const supabaseURL = process.env.SUPABASE_URL;
+const supabaseKEY = process.env.SUPABASE_KEY;
+const supabase = createClient(supabaseURL, supabaseKEY);
+
+const retrieve_club_id = async (club_name) => {
+  const {data: clubid, error} = await supabase
+    .from('Club Profile')
+    .select('clubid')
+    .eq('name',club_name)
+  const club_id = clubid[0].clubid
+  return club_id
+}
 
 export const BadgeCard = props => {
+  const user = useContext(UserContext);
+  const userid = user.userid
   const features = props.tags.map(tag => (
     <Badge color="white" variant="light" key={tag}>
       {tag}
@@ -23,7 +42,9 @@ export const BadgeCard = props => {
             gradient={{ from: 'white', to: '#971B2F' }}
             fz="lg"
             fw={500}
-            onClick={() => {
+            onClick={async () => {
+              const club_id = await retrieve_club_id(props.name)
+              user.updateClubId(club_id)
               router.push('/clubhome');
             }}
             underline="never"
@@ -43,9 +64,7 @@ export const BadgeCard = props => {
       </CardSection>
       <CardSection className={classes.buttonsection}>
         <Group mt="xs">
-          <Button color="#971B2F" radius="md" style={{ flex: 1 }}>
-            Follow
-          </Button>
+        {props.name ? <FollowButton clubName = {props.name} userID = {userid}/> : <Button color="#971B2F" w={295}></Button>}
         </Group>
       </CardSection>
     </Card>
