@@ -9,6 +9,7 @@ import {
   Text,
   ActionIcon,
 } from '@mantine/core';
+import { IconSun, IconMoon } from '@tabler/icons-react';
 import cx from 'clsx';
 import classes from './Header.module.css';
 import Link from 'next/link';
@@ -105,14 +106,15 @@ export function Header() {
             </Group>
 
             <Group visibleFrom="sm">
-              <ActionIcon
-                color="#971B2F"
-                onClick={() => setColorScheme(computedColorScheme === 'dark' ? 'light' : 'dark')}
-                variant="default"
-              >
-                <Text className={cx(classes.icon, classes.light)}>L</Text>
-                <Text className={cx(classes.icon, classes.dark)}>D</Text>
-              </ActionIcon>
+                  <ActionIcon
+                    onClick={() => setColorScheme(computedColorScheme === 'light' ? 'dark' : 'light')}
+                    variant="default"
+                    size="xl"
+                    aria-label="Toggle color scheme"
+                  >
+                    <IconSun className={cx(classes.icon, classes.light)} stroke={1.5} />
+                    <IconMoon className={cx(classes.icon, classes.dark)} stroke={1.5} />
+                  </ActionIcon>
               <div>
                 {user.email ? (
                   <>
