@@ -17,16 +17,15 @@ const SignUp = async (user_name, user_password, user_confirm_password, user_emai
     .from('User Profile V1a')
     .select('*')
     .eq('email', user_email);
-
+  console.log(exist, error_exist);
   if (error_exist) {
     return { status: 'Error', msg: `${error_exist}` };
   }
   if (exist.length !== 0) {
     return { status: 'Error', msg: 'Email already exist' };
   }
-
+  console.log(user_name, user_password, user_email);
   const { data_insert, error_insert } = await supabase.from('User Profile V1a').insert({
-    userid: parseInt(uuid.v4()),
     name: user_name,
     password: user_password,
     email: user_email,
