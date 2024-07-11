@@ -1,4 +1,3 @@
-'use server';
 //Handles retrieving and changing the active tags
 import { clubSearch } from '@/app/clubsearch/clubSearch';
 let activeTags = [];
