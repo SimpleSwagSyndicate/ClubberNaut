@@ -65,8 +65,8 @@ Inside the config file, add:
 // please remember to un-wrap the key
 module.exports = {
   env: {
-    SUPABASE_URL: '***REMOVED***',
-    SUPABASE_KEY: '***REMOVED***'
+    SUPABASE_URL: '???',
+    SUPABASE_KEY: '???'
   },
 }
 ```
