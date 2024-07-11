@@ -1,6 +1,7 @@
 'use client';
 import { Checkbox } from '@mantine/core';
 import { useState } from 'react';
+import { tagHandleCheck } from './handleCheck';
 
 //tagbox component that updates tags and stores the current check value
 export const TagBox = props => {
@@ -8,7 +9,7 @@ export const TagBox = props => {
 
   const handle = event => {
     setChecked(event.currentTarget.checked);
-    props.handleCheck(isChecked, props.label);
+    tagHandleCheck(isChecked, props.label, props.search, props.setFiltData);
   };
 
   return <Checkbox label={props.label} checked={isChecked} onChange={handle} />;

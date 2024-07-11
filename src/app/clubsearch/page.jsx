@@ -37,7 +37,7 @@ export default function clubsearch() {
     <div>
       <Group>
         <Group className={classes.postags}>
-          <Checklist />
+          <Checklist search={value} setFiltData={setFiltData}/>
         </Group>
         <Stack className={classes.posclubs} align="center" pos="relative">
           <Container bottom={60} size="xl">
@@ -49,13 +49,10 @@ export default function clubsearch() {
               value={value}
               className={classes.search}
               //changes value variable when something is typed
-              onChange={event => setValue(event.currentTarget.value)}
-              //On enter, retrieve the club based on current queries.
-              onKeyDown={async event => {
-                if (event.key === 'Enter') {
-                  let filteredSearch = await clubSearch(value, await getTags());
-                  setFiltData(filteredSearch);
-                }
+              onChange={async event => {
+                setValue(event.target.value);
+                let filteredSearch = await clubSearch(event.target.value, await getTags());
+                setFiltData(filteredSearch);
               }}
             />
             <SearchGrid filteredData={filtData} />
