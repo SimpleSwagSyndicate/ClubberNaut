@@ -30,7 +30,7 @@ export const retrieve_followed_clubs = async (user_id: number) => {
     .from('User Profile V1a')
     .select('clubs')
     .eq('userid', user_id);
-  if (clubs.length === 0 || !clubs[0].clubs) {
+  if (!clubs || clubs.length === 0 || !clubs[0].clubs) {
     return [];
   }
   const user_clubs = clubs[0].clubs;
