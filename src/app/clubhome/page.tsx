@@ -107,14 +107,17 @@ export default function clubhome(id: any) {
       </Stack>
       <Paper
         className={classes.icon}
+        h={550}
         shadow="lg"
-        style={{ backgroundColor: '#971B2F' }}
         radius="lg"
       >
         <Stack>
           <Image
             src={thumbnail_url}
             fit="cover"
+            height={350}
+            width={350}
+            alt="club thumbnail"
           />
           <Group>
             {club_data ? <FollowButton clubName = {club_data[0]} userID = {user.userid}/> : <Button color="#971B2F" w={295}></Button>}
