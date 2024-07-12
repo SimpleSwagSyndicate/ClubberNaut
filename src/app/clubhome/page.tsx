@@ -73,7 +73,7 @@ export default function clubhome(id: any) {
   const club_tags = club_data[2]
   const club_updates = club_data[3]
   const club_advisors = club_data[4]
-  const thumbnail_url = 'https://hwifvhkdngdxtmbvymlx.supabase.co/storage/v1/object/public/club_thumbnails/' + club_data[5] + '.jpg'
+  const thumbnail_url = 'https://hwifvhkdngdxtmbvymlx.supabase.co/storage/v1/object/public/club_thumbnails/' + club_data[5]
 
   console.log(club_data[0] + " clubnamepre")
 
