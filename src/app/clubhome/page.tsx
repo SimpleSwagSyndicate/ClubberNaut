@@ -51,7 +51,7 @@ const retrieve_club = async (club_id:number) => {
   if (updates !== undefined){
     club_updates = Object.values(updates)
   }
-  return [club_name,club_description,club_tags,club_updates,club_advisors]
+  return [club_name,club_description,club_tags,club_updates,club_advisors, club_id]
 }
 
 export default function clubhome(id: any) {
@@ -73,6 +73,7 @@ export default function clubhome(id: any) {
   const club_tags = club_data[2]
   const club_updates = club_data[3]
   const club_advisors = club_data[4]
+  const thumbnail_url = 'https://hwifvhkdngdxtmbvymlx.supabase.co/storage/v1/object/public/club_thumbnails/' + club_data[5] + '.jpg'
 
   console.log(club_data[0] + " clubnamepre")
 
@@ -112,7 +113,7 @@ export default function clubhome(id: any) {
       >
         <Stack>
           <Image
-            src="https://upload.wikimedia.org/wikipedia/commons/4/4f/UMass_Seal_Medium_PMS_202.png"
+            src={thumbnail_url}
             fit="cover"
           />
           <Group>
