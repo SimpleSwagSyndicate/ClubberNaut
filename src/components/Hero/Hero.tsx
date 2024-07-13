@@ -56,6 +56,7 @@ export function Hero() {
   const [updates, setUpdates] = useState<any[][]>([]);
 
   useEffect(() => {
+    console.log(supabaseKEY)
     console.log('USER ID: ' + user.userid);
     const fetch = async () => {
       let updates = await retrieve_updates(user.userid);
