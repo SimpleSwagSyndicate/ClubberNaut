@@ -41,7 +41,7 @@ const fetchUserIdByEmail = async (email: any) => {
     } else {
       return null; // Return null if no user found with the given email
     }
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error fetching username:', error.message);
     return null;
   }
