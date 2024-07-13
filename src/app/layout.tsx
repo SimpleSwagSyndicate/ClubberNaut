@@ -5,6 +5,7 @@ import { Header } from '@/components/Header/Header';
 
 import { ColorSchemeScript, MantineProvider } from '@mantine/core';
 import { UserInfo } from '@/controllers/UserInfo';
+import './globals.css';
 
 export const metadata = {
   title: 'Clubbernaut',
