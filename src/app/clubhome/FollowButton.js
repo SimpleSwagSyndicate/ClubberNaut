@@ -2,7 +2,7 @@
 import { useEffect, useState} from 'react';
 import { Button } from '@mantine/core';
 import { UserInfo } from '@/controllers/UserInfo';
-import { retrieve_followed_clubs } from '../personal/page';
+import { retrieve_followed_clubs } from '../personal/retrieve_followed_clubs';
 import { useRouter } from 'next/navigation';
 const { createClient } = require('@supabase/supabase-js');
 const supabaseURL = process.env.SUPABASE_URL;
