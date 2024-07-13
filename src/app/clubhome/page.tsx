@@ -42,6 +42,7 @@ const retrieve_club = async (club_id:number) => {
   const club_name = club_data.name
   const club_description = club_data.description
   const club_tags = club_data.tags
+  const club_thumbnail = club_data.thumbnail;
 
   const advisors = club_data.advisors
   const club_advisors = Object.entries(advisors)
@@ -51,7 +52,7 @@ const retrieve_club = async (club_id:number) => {
   if (updates !== undefined){
     club_updates = Object.values(updates)
   }
-  return [club_name,club_description,club_tags,club_updates,club_advisors, club_id]
+  return [club_name,club_description,club_tags,club_updates,club_advisors,club_thumbnail]
 }
 
 export default function clubhome(id: any) {

@@ -11,7 +11,7 @@ export const SearchGrid = props => {
           <BadgeCard
             key={data.id}
             image={
-              'https://hwifvhkdngdxtmbvymlx.supabase.co/storage/v1/object/public/club_thumbnails/' + data.clubid
+              'https://hwifvhkdngdxtmbvymlx.supabase.co/storage/v1/object/public/club_thumbnails/' + data.thumbnail
             }
             name={data.name}
             tags={data.tags}

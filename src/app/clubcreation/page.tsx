@@ -21,11 +21,23 @@ import { getTags, handleCheck } from './handleCheck';
 import { TagBox } from './CheckBox';
 
 export default function clubcreation() {
+  const [acceptedFiles, setAcceptedFile] = useState<File[]>([]);
+  const [rejectedFiles, setRejectedFiles] = useState<File[]>([]);
   const [club_name, setClubName] = useState('');
   const [club_description, setClubDescription] = useState('');
 
+  const handleDrop = (files: File[]) => {
+    setAcceptedFile(files);
+    console.log('accepted file', files[0]);
+  };
+
+  const handleReject = (files: any) => {
+    setRejectedFiles(files);
+    console.log('rejected files', files);
+  };
+
   const handleCreateClub = async () => {
-    const res = await MakeClub(club_name, getTags(), club_description);
+    const res = await MakeClub(club_name, getTags(), club_description, acceptedFiles[0]);
     alert(res.msg);
     console.log();
   };
@@ -77,8 +89,8 @@ export default function clubcreation() {
             onChange={e => setClubDescription(e.target.value)}
           />
           <Dropzone
-            onDrop={(files) => console.log('accepted files', files)}
-            onReject={(files) => console.log('rejected files', files)}
+            onDrop={handleDrop}
+            onReject={handleReject}
             maxSize={5 * 1024 ** 2}
             accept={IMAGE_MIME_TYPE}
           >
@@ -111,6 +123,22 @@ export default function clubcreation() {
                 </Text>
               </div>
             </Group>
+            <div>
+              <h4>Accepted File</h4>
+              <ul>
+                {rejectedFiles.map((file, index) => (
+                  <li key={index}>{file.name}</li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h4>Rejected Files:</h4>
+              <ul>
+                {rejectedFiles.map((file, index) => (
+                  <li key={index}>{file.name}</li>
+                ))}
+              </ul>
+            </div>
           </Dropzone>
           <Group justify="center" mt="xl" className={classes.button}>
             <Button type="submit" onClick={handleCreateClub} size="lg" color="#971B2F">
