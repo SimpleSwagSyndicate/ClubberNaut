@@ -22,8 +22,8 @@ import { useContext, useEffect, useState } from 'react';
 import { UserContext } from '@/controllers/UserInfo';
 import {FollowButton} from './FollowButton'
 const { createClient } = require('@supabase/supabase-js');
-const supabaseURL = process.env.SUPABASE_URL;
-const supabaseKEY = process.env.SUPABASE_KEY;
+const supabaseURL = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const supabaseKEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 const supabase = createClient(supabaseURL, supabaseKEY);
 
 const retrieve_club = async (club_id:number) => {
