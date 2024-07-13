@@ -1,6 +1,7 @@
 'use client';
 
 import { Component } from 'react';
+import { retrieve_followed_clubs } from './retrieve_followed_clubs';
 import classes from './personal.module.css';
 import Link from 'next/link';
 import {
@@ -24,17 +25,6 @@ const { createClient } = require('@supabase/supabase-js');
 const supabaseURL = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseKEY = process.env.NEXT_PUBLIC_SUPABASE_KEY;
 const supabase = createClient(supabaseURL, supabaseKEY);
-
-export const retrieve_followed_clubs = async (user_id: number) => {
-  const { data: clubs, error } = await supabase
-    .from('User Profile V1a')
-    .select('clubs')
-    .eq('userid', user_id);
-
-  const user_clubs = clubs[0].clubs;
-
-  return user_clubs;
-};
 
 const retrieve_club_id = async (club_name:string) => {
   const {data: clubid, error} = await supabase

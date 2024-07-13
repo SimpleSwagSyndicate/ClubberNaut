@@ -7,7 +7,7 @@ import { Calendar } from '@mantine/dates';
 
 export function PersonalCalendar() {
   const [value, setValue] = useState(new Date());
-  function handleChange(e) {
+  function handleChange(e: any) {
     setValue(e.value);
   }
 
