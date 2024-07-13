@@ -22,8 +22,8 @@ import { UserContext } from '../../controllers/UserInfo';
 import { useRouter } from 'next/navigation';
 
 const { createClient } = require('@supabase/supabase-js');
-const supabaseURL = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseKEY = process.env.NEXT_PUBLIC_SUPABASE_KEY;
+const supabaseURL = process.env.SUPABASE_URL;
+const supabaseKEY = process.env.SUPABASE_KEY;
 const supabase = createClient(supabaseURL, supabaseKEY);
 
 const retrieve_club_id = async (club_name:string) => {
