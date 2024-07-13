@@ -1,14 +1,18 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  plugins: {
-    'postcss-preset-mantine': {},
-    'postcss-simple-vars': {
-      variables: {
-        'mantine-breakpoint-xs': '36em',
-        'mantine-breakpoint-sm': '48em',
-        'mantine-breakpoint-md': '62em',
-        'mantine-breakpoint-lg': '75em',
-        'mantine-breakpoint-xl': '88em',
-      },
-    },
+  content: [
+    './app/**/*.{js,ts,jsx,tsx,mdx}', // Note the addition of the `app` directory.
+    './pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
+
+    // Or if using `src` directory:
+    './src/**/*.{js,ts,jsx,tsx,mdx}',
+  ],
+  theme: {
+    extend: {},
   },
-};
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+}

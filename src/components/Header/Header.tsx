@@ -71,7 +71,7 @@ export function Header() {
   return (
     <UserInfo>
       <Box pb={120}>
-        <header className={classes.header}>
+        <header className={`bg-black ${classes.header}`}>
           <Group justify="space-between" h="100%">
             <Group h="100%" gap={0} visibleFrom="sm">
               <Image
