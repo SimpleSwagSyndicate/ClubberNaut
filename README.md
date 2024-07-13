@@ -65,8 +65,8 @@ Inside the config file, add:
 // please remember to un-wrap the key
 module.exports = {
   env: {
-    NEXT_PUBLIC_SUPABASE_URL: '???',
-    NEXT_PUBLIC_SUPABASE_ANON_KEY: '???'
+    SUPABASE_URL: '???',
+    SUPABASE_ANON_KEY: '???'
   },
 }
 ```
